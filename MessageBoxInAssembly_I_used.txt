@@ -1,0 +1,71 @@
+includelib user32.lib
+
+extern MessageBoxExW:PROC
+.DATA
+hwnd QWORD 0
+; Buttons displayed in message box
+MB_ABORTRETRYIGNORE equ 2
+MB_CANCELTRYCONTINUE equ 6
+MB_OK equ 0
+
+testTitle DW 'T', 'e', 's', 't', 0
+MrBrown DW 'M', 'r', '.', ' ', 'B', 'r', 'o', 'w', 'n', 0
+Mommy DW 'M', 'o', 'o', 'o', 'o','o','o','m', 'y', 'y', 'y', 'y', 'y', 'y', 0
+Error DW 'E', 'r', 'r', 'o', 'r', 0
+Questions DW 'Q', 'u', 'e', 's', 't', 'i', 'o', 'n', 's', 0
+QuestionText DW 'H', 'a', 'v', 'e', ' ', 'a', ' ', 'Q', 'u', 'e', 's', 't', 'i', 'o', 'n', '?', ' ', 'R', 'a', 'i', 's', 'e', ' ', 'Y', 'o', 'u', 'r', ' ', 'H', 'a', 'n', 'd', '.', 0
+MommyTitle DW 'M', 'o', 'm', 'm', 'y', 0 
+NoVirusMsg DW 'E', 'm', 'e', 'r', 'a', 'l', 'd', ' ', 'd', 'o', 'e', 's', ' ', 'n', 'o', 't', ' ', 'm', 'a', 'k', 'e', ' ', 'v', 'i', 'r', 'u', 's', 'e', 's', '.', 0
+helloMsg DW 'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', 0
+MrBrownMsg DW 'H', 'e', 'l', 'l', 'o', ' ', 'M', 'r', '.', ' ', 'B', 'r', 'o', 'w', 'n', '!', 0
+
+MB_ICONINFORMATION equ 40h
+MB_ICONWARNING equ 30h
+MB_ICONQUESTION equ 20h
+MB_ICONERROR equ 10h
+
+.CODE
+
+WinMain PROC
+    push rbp
+    mov rbp, rsp
+    sub rsp, 20h
+
+    mov rcx, 0
+    lea rdx, [helloMsg]
+    lea r8, [testTitle]
+    mov r9d, MB_ICONINFORMATION
+    call MessageBoxExW
+
+    mov rcx, 0
+    lea rdx, [MrBrownMsg]
+    lea r8, [MrBrown]
+    mov r9d, MB_ICONINFORMATION
+    call MessageBoxExW
+
+    mov rcx, 0
+    lea rdx, [Mommy]
+    lea r8, [MommyTitle]
+    mov r9d, MB_ICONWARNING
+    call MessageBoxExW
+
+    mov rcx, 0
+    lea rdx, [NoVirusMsg]
+    lea r8, [Error]
+    mov r9d, MB_ICONERROR
+    call MessageBoxExW
+
+    mov rcx, 0
+    lea rdx, [QuestionText]
+    lea r8, [Questions]
+    mov r9d, MB_ICONQUESTION
+    call MessageBoxExW
+
+    add rsp, 20h
+    pop rbx
+
+    xor rax, rax
+    ret
+WinMain ENDP
+
+END
