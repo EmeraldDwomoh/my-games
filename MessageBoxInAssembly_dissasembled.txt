@@ -5,22 +5,22 @@
 .text:0000000140001000 ; |                            Freeware version                             |
 .text:0000000140001000 ; +-------------------------------------------------------------------------+
 .text:0000000140001000 ;
-.text:0000000140001000 ; Input SHA256 : F24F635DEE5E3538BDFED15B2636011B9CA4975A27D4090E7F6FBE48244A2927
-.text:0000000140001000 ; Input MD5    : 03D9BDF1865E9AACC7F7807E32BE8C48
-.text:0000000140001000 ; Input CRC32  : 82709DD6
+.text:0000000140001000 ; Input SHA256 : 26ECBD2C778D11011500D65F27B70D653724271097520DEFDE0920ECC98F5FA3
+.text:0000000140001000 ; Input MD5    : C84592F533D31EBF3661BA93694544FB
+.text:0000000140001000 ; Input CRC32  : D92EE3A4
 .text:0000000140001000 ; Compiler     : Visual C++
 .text:0000000140001000
-.text:0000000140001000 ; File Name   : C:\Users\Emerald\source\repos\MessageBoxInAssembly\MessageBoxInAssembly\x64\Debug\MessageBoxInAssembly.exe
+.text:0000000140001000 ; File Name   : C:\Users\Emerald\source\repos\MessageBoxInAssembly\x64\Release\MessageBoxInAssembly.exe
 .text:0000000140001000 ; Format      : Portable executable for AMD64 (PE)
 .text:0000000140001000 ; Imagebase   : 140000000
-.text:0000000140001000 ; Timestamp   : 688839EE (Tue Jul 29 03:03:10 2025)
+.text:0000000140001000 ; Timestamp   : 688A21B0 (Wed Jul 30 13:44:16 2025)
 .text:0000000140001000 ; Section 1. (virtual address 00001000)
-.text:0000000140001000 ; Virtual size                  : 000010F8 (   4344.)
-.text:0000000140001000 ; Section size in file          : 00001200 (   4608.)
+.text:0000000140001000 ; Virtual size                  : 000000B7 (    183.)
+.text:0000000140001000 ; Section size in file          : 00000200 (    512.)
 .text:0000000140001000 ; Offset to raw data for section: 00000400
 .text:0000000140001000 ; Flags 60000020: Text Executable Readable
 .text:0000000140001000 ; Alignment     : default
-.text:0000000140001000 ; PDB File Name : C:\Users\Emerald\source\repos\MessageBoxInAssembly\MessageBoxInAssembly\x64\Debug\MessageBoxInAssembly.pdb
+.text:0000000140001000 ; PDB File Name : C:\Users\Emerald\source\repos\MessageBoxInAssembly\x64\Release\MessageBoxInAssembly.pdb
 .text:0000000140001000
 .text:0000000140001000                 .686p
 .text:0000000140001000                 .mmx
@@ -34,1289 +34,642 @@
 .text:0000000140001000                 assume cs:_text
 .text:0000000140001000                 ;org 140001000h
 .text:0000000140001000                 assume es:nothing, ss:nothing, ds:_data, fs:nothing, gs:nothing
-.text:0000000140001000                 db 5 dup(0CCh)
-.text:0000000140001005
-.text:0000000140001005 ; =============== S U B R O U T I N E =======================================
-.text:0000000140001005
-.text:0000000140001005
-.text:0000000140001005 ; int __stdcall start(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
-.text:0000000140001005                 public start
-.text:0000000140001005 start           proc near
-.text:0000000140001005                 jmp     WinMain
-.text:0000000140001005 start           endp
-.text:0000000140001005
-.text:0000000140001005 ; ---------------------------------------------------------------------------
-.text:000000014000100A                 align 10h
-.text:0000000140001010
-.text:0000000140001010 ; =============== S U B R O U T I N E =======================================
-.text:0000000140001010
-.text:0000000140001010 ; Attributes: bp-based frame
-.text:0000000140001010
-.text:0000000140001010 ; int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
-.text:0000000140001010 WinMain         proc near               ; CODE XREF: start↑j
-.text:0000000140001010                 push    rbp             ; wLanguageId
-.text:0000000140001011                 mov     rbp, rsp
-.text:0000000140001014                 sub     rsp, 20h
-.text:0000000140001018                 mov     rcx, 0          ; hWnd
-.text:000000014000101F                 lea     rdx, helloMsg   ; lpText
-.text:0000000140001026                 lea     r8, testTitle   ; lpCaption
-.text:000000014000102D                 mov     r9d, 40h ; '@'  ; uType
-.text:0000000140001033                 call    MessageBoxExW_0
-.text:0000000140001038                 mov     rcx, 0          ; hWnd
-.text:000000014000103F                 lea     rdx, MrBrownMsg ; lpText
-.text:0000000140001046                 lea     r8, MrBrown     ; lpCaption
-.text:000000014000104D                 mov     r9d, 40h ; '@'  ; uType
-.text:0000000140001053                 call    MessageBoxExW_0
-.text:0000000140001058                 mov     rcx, 0          ; hWnd
-.text:000000014000105F                 lea     rdx, Mommy      ; lpText
-.text:0000000140001066                 lea     r8, MommyTitle  ; lpCaption
-.text:000000014000106D                 mov     r9d, 30h ; '0'  ; uType
-.text:0000000140001073                 call    MessageBoxExW_0
-.text:0000000140001078                 mov     rcx, 0          ; hWnd
-.text:000000014000107F                 lea     rdx, NoVirusMsg ; lpText
-.text:0000000140001086                 lea     r8, Error       ; lpCaption
-.text:000000014000108D                 mov     r9d, 10h        ; uType
-.text:0000000140001093                 call    MessageBoxExW_0
-.text:0000000140001098                 mov     rcx, 0          ; hWnd
-.text:000000014000109F                 lea     rdx, QuestionText ; lpText
-.text:00000001400010A6                 lea     r8, Questions   ; "Questions"
-.text:00000001400010AD                 mov     r9d, 20h ; ' '  ; uType
-.text:00000001400010B3                 call    MessageBoxExW_0
-.text:00000001400010B8                 add     rsp, 20h
-.text:00000001400010BC                 pop     rbx
-.text:00000001400010BD                 xor     rax, rax
-.text:00000001400010C0                 retn
-.text:00000001400010C0 WinMain         endp
-.text:00000001400010C0
-.text:00000001400010C0 ; ---------------------------------------------------------------------------
-.text:00000001400010C1                 db 2Ch dup(0CCh)
-.text:00000001400010ED ; [00000006 BYTES: COLLAPSED FUNCTION MessageBoxExW_0. PRESS CTRL-NUMPAD+ TO EXPAND]
-.text:00000001400010F3                 db 1005h dup(0CCh)
-.text:00000001400020F8                 align 200h
-.text:0000000140002200                 dq 1C0h dup(?)
-.text:0000000140002200 _text           ends
-.text:0000000140002200
-.rdata:0000000140003000 ; Section 2. (virtual address 00003000)
-.rdata:0000000140003000 ; Virtual size                  : 000002FA (    762.)
-.rdata:0000000140003000 ; Section size in file          : 00000400 (   1024.)
-.rdata:0000000140003000 ; Offset to raw data for section: 00001600
-.rdata:0000000140003000 ; Flags 40000040: Data Readable
-.rdata:0000000140003000 ; Alignment     : default
-.rdata:0000000140003000 ; Debug Directory entries
-.rdata:0000000140003000 ; ===========================================================================
-.rdata:0000000140003000
-.rdata:0000000140003000 ; Segment type: Pure data
-.rdata:0000000140003000 ; Segment permissions: Read
-.rdata:0000000140003000 _rdata          segment para public 'DATA' use64
-.rdata:0000000140003000                 assume cs:_rdata
-.rdata:0000000140003000                 ;org 140003000h
-.rdata:0000000140003000                 dd 0                    ; Characteristics
-.rdata:0000000140003004                 dd 688839EEh            ; TimeDateStamp: Tue Jul 29 03:03:10 2025
-.rdata:0000000140003008                 dw 0                    ; MajorVersion
-.rdata:000000014000300A                 dw 0                    ; MinorVersion
-.rdata:000000014000300C                 dd 2                    ; Type: IMAGE_DEBUG_TYPE_CODEVIEW
-.rdata:0000000140003010                 dd 83h                  ; SizeOfData
-.rdata:0000000140003014                 dd rva asc_140003144    ; AddressOfRawData
-.rdata:0000000140003018                 dd 1744h                ; PointerToRawData
-.rdata:000000014000301C                 dd 0                    ; Characteristics
-.rdata:0000000140003020                 dd 688839EEh            ; TimeDateStamp: Tue Jul 29 03:03:10 2025
-.rdata:0000000140003024                 dw 0                    ; MajorVersion
-.rdata:0000000140003026                 dw 0                    ; MinorVersion
-.rdata:0000000140003028                 dd 0Ch                  ; Type: IMAGE_DEBUG_TYPE_VC_FEATURE
-.rdata:000000014000302C                 dd 14h                  ; SizeOfData
-.rdata:0000000140003030                 dd rva unk_1400031C8    ; AddressOfRawData
-.rdata:0000000140003034                 dd 17C8h                ; PointerToRawData
-.rdata:0000000140003038                 db    0
-.rdata:0000000140003039                 db    0
-.rdata:000000014000303A                 db    0
-.rdata:000000014000303B                 db    0
-.rdata:000000014000303C                 db    0
-.rdata:000000014000303D                 db    0
-.rdata:000000014000303E                 db    0
-.rdata:000000014000303F                 db    0
-.rdata:0000000140003040                 db    0
-.rdata:0000000140003041                 db    0
-.rdata:0000000140003042                 db    0
-.rdata:0000000140003043                 db    0
-.rdata:0000000140003044                 db    0
-.rdata:0000000140003045                 db    0
-.rdata:0000000140003046                 db    0
-.rdata:0000000140003047                 db    0
-.rdata:0000000140003048                 db    0
-.rdata:0000000140003049                 db    0
-.rdata:000000014000304A                 db    0
-.rdata:000000014000304B                 db    0
-.rdata:000000014000304C                 db    0
-.rdata:000000014000304D                 db    0
-.rdata:000000014000304E                 db    0
-.rdata:000000014000304F                 db    0
-.rdata:0000000140003050                 db    0
-.rdata:0000000140003051                 db    0
-.rdata:0000000140003052                 db    0
-.rdata:0000000140003053                 db    0
-.rdata:0000000140003054                 db    0
-.rdata:0000000140003055                 db    0
-.rdata:0000000140003056                 db    0
-.rdata:0000000140003057                 db    0
-.rdata:0000000140003058                 db    0
-.rdata:0000000140003059                 db    0
-.rdata:000000014000305A                 db    0
-.rdata:000000014000305B                 db    0
-.rdata:000000014000305C                 db    0
-.rdata:000000014000305D                 db    0
-.rdata:000000014000305E                 db    0
-.rdata:000000014000305F                 db    0
-.rdata:0000000140003060                 db    0
-.rdata:0000000140003061                 db    0
-.rdata:0000000140003062                 db    0
-.rdata:0000000140003063                 db    0
-.rdata:0000000140003064                 db    0
-.rdata:0000000140003065                 db    0
-.rdata:0000000140003066                 db    0
-.rdata:0000000140003067                 db    0
-.rdata:0000000140003068                 db    0
-.rdata:0000000140003069                 db    0
-.rdata:000000014000306A                 db    0
-.rdata:000000014000306B                 db    0
-.rdata:000000014000306C                 db    0
-.rdata:000000014000306D                 db    0
-.rdata:000000014000306E                 db    0
-.rdata:000000014000306F                 db    0
-.rdata:0000000140003070                 db    0
-.rdata:0000000140003071                 db    0
-.rdata:0000000140003072                 db    0
-.rdata:0000000140003073                 db    0
-.rdata:0000000140003074                 db    0
-.rdata:0000000140003075                 db    0
-.rdata:0000000140003076                 db    0
-.rdata:0000000140003077                 db    0
-.rdata:0000000140003078                 db    0
-.rdata:0000000140003079                 db    0
-.rdata:000000014000307A                 db    0
-.rdata:000000014000307B                 db    0
-.rdata:000000014000307C                 db    0
-.rdata:000000014000307D                 db    0
-.rdata:000000014000307E                 db    0
-.rdata:000000014000307F                 db    0
-.rdata:0000000140003080                 db    0
-.rdata:0000000140003081                 db    0
-.rdata:0000000140003082                 db    0
-.rdata:0000000140003083                 db    0
-.rdata:0000000140003084                 db    0
-.rdata:0000000140003085                 db    0
-.rdata:0000000140003086                 db    0
-.rdata:0000000140003087                 db    0
-.rdata:0000000140003088                 db    0
-.rdata:0000000140003089                 db    0
-.rdata:000000014000308A                 db    0
-.rdata:000000014000308B                 db    0
-.rdata:000000014000308C                 db    0
-.rdata:000000014000308D                 db    0
-.rdata:000000014000308E                 db    0
-.rdata:000000014000308F                 db    0
-.rdata:0000000140003090                 db    0
-.rdata:0000000140003091                 db    0
-.rdata:0000000140003092                 db    0
-.rdata:0000000140003093                 db    0
-.rdata:0000000140003094                 db    0
-.rdata:0000000140003095                 db    0
-.rdata:0000000140003096                 db    0
-.rdata:0000000140003097                 db    0
-.rdata:0000000140003098                 db    0
-.rdata:0000000140003099                 db    0
-.rdata:000000014000309A                 db    0
-.rdata:000000014000309B                 db    0
-.rdata:000000014000309C                 db    0
-.rdata:000000014000309D                 db    0
-.rdata:000000014000309E                 db    0
-.rdata:000000014000309F                 db    0
-.rdata:00000001400030A0                 db    0
-.rdata:00000001400030A1                 db    0
-.rdata:00000001400030A2                 db    0
-.rdata:00000001400030A3                 db    0
-.rdata:00000001400030A4                 db    0
-.rdata:00000001400030A5                 db    0
-.rdata:00000001400030A6                 db    0
-.rdata:00000001400030A7                 db    0
-.rdata:00000001400030A8                 db    0
-.rdata:00000001400030A9                 db    0
-.rdata:00000001400030AA                 db    0
-.rdata:00000001400030AB                 db    0
-.rdata:00000001400030AC                 db    0
-.rdata:00000001400030AD                 db    0
-.rdata:00000001400030AE                 db    0
-.rdata:00000001400030AF                 db    0
-.rdata:00000001400030B0                 db    0
-.rdata:00000001400030B1                 db    0
-.rdata:00000001400030B2                 db    0
-.rdata:00000001400030B3                 db    0
-.rdata:00000001400030B4                 db    0
-.rdata:00000001400030B5                 db    0
-.rdata:00000001400030B6                 db    0
-.rdata:00000001400030B7                 db    0
-.rdata:00000001400030B8                 db    0
-.rdata:00000001400030B9                 db    0
-.rdata:00000001400030BA                 db    0
-.rdata:00000001400030BB                 db    0
-.rdata:00000001400030BC                 db    0
-.rdata:00000001400030BD                 db    0
-.rdata:00000001400030BE                 db    0
-.rdata:00000001400030BF                 db    0
-.rdata:00000001400030C0                 db    0
-.rdata:00000001400030C1                 db    0
-.rdata:00000001400030C2                 db    0
-.rdata:00000001400030C3                 db    0
-.rdata:00000001400030C4                 db    0
-.rdata:00000001400030C5                 db    0
-.rdata:00000001400030C6                 db    0
-.rdata:00000001400030C7                 db    0
-.rdata:00000001400030C8                 db    0
-.rdata:00000001400030C9                 db    0
-.rdata:00000001400030CA                 db    0
-.rdata:00000001400030CB                 db    0
-.rdata:00000001400030CC                 db    0
-.rdata:00000001400030CD                 db    0
-.rdata:00000001400030CE                 db    0
-.rdata:00000001400030CF                 db    0
-.rdata:00000001400030D0                 db    0
-.rdata:00000001400030D1                 db    0
-.rdata:00000001400030D2                 db    0
-.rdata:00000001400030D3                 db    0
-.rdata:00000001400030D4                 db    0
-.rdata:00000001400030D5                 db    0
-.rdata:00000001400030D6                 db    0
-.rdata:00000001400030D7                 db    0
-.rdata:00000001400030D8                 db    0
-.rdata:00000001400030D9                 db    0
-.rdata:00000001400030DA                 db    0
-.rdata:00000001400030DB                 db    0
-.rdata:00000001400030DC                 db    0
-.rdata:00000001400030DD                 db    0
-.rdata:00000001400030DE                 db    0
-.rdata:00000001400030DF                 db    0
-.rdata:00000001400030E0                 db    0
-.rdata:00000001400030E1                 db    0
-.rdata:00000001400030E2                 db    0
-.rdata:00000001400030E3                 db    0
-.rdata:00000001400030E4                 db    0
-.rdata:00000001400030E5                 db    0
-.rdata:00000001400030E6                 db    0
-.rdata:00000001400030E7                 db    0
-.rdata:00000001400030E8                 db    0
-.rdata:00000001400030E9                 db    0
-.rdata:00000001400030EA                 db    0
-.rdata:00000001400030EB                 db    0
-.rdata:00000001400030EC                 db    0
-.rdata:00000001400030ED                 db    0
-.rdata:00000001400030EE                 db    0
-.rdata:00000001400030EF                 db    0
-.rdata:00000001400030F0                 db    0
-.rdata:00000001400030F1                 db    0
-.rdata:00000001400030F2                 db    0
-.rdata:00000001400030F3                 db    0
-.rdata:00000001400030F4                 db    0
-.rdata:00000001400030F5                 db    0
-.rdata:00000001400030F6                 db    0
-.rdata:00000001400030F7                 db    0
-.rdata:00000001400030F8                 db    0
-.rdata:00000001400030F9                 db    0
-.rdata:00000001400030FA                 db    0
-.rdata:00000001400030FB                 db    0
-.rdata:00000001400030FC                 db    0
-.rdata:00000001400030FD                 db    0
-.rdata:00000001400030FE                 db    0
-.rdata:00000001400030FF                 db    0
-.rdata:0000000140003100                 db    0
-.rdata:0000000140003101                 db    0
-.rdata:0000000140003102                 db    0
-.rdata:0000000140003103                 db    0
-.rdata:0000000140003104                 db    0
-.rdata:0000000140003105                 db    0
-.rdata:0000000140003106                 db    0
-.rdata:0000000140003107                 db    0
-.rdata:0000000140003108                 db    0
-.rdata:0000000140003109                 db    0
-.rdata:000000014000310A                 db    0
-.rdata:000000014000310B                 db    0
-.rdata:000000014000310C                 db    0
-.rdata:000000014000310D                 db    0
-.rdata:000000014000310E                 db    0
-.rdata:000000014000310F                 db    0
-.rdata:0000000140003110                 db    0
-.rdata:0000000140003111                 db    0
-.rdata:0000000140003112                 db    0
-.rdata:0000000140003113                 db    0
-.rdata:0000000140003114                 db    0
-.rdata:0000000140003115                 db    0
-.rdata:0000000140003116                 db    0
-.rdata:0000000140003117                 db    0
-.rdata:0000000140003118                 db    0
-.rdata:0000000140003119                 db    0
-.rdata:000000014000311A                 db    0
-.rdata:000000014000311B                 db    0
-.rdata:000000014000311C                 db    0
-.rdata:000000014000311D                 db    0
-.rdata:000000014000311E                 db    0
-.rdata:000000014000311F                 db    0
-.rdata:0000000140003120                 db    0
-.rdata:0000000140003121                 db    0
-.rdata:0000000140003122                 db    0
-.rdata:0000000140003123                 db    0
-.rdata:0000000140003124                 db    0
-.rdata:0000000140003125                 db    0
-.rdata:0000000140003126                 db    0
-.rdata:0000000140003127                 db    0
-.rdata:0000000140003128                 db    0
-.rdata:0000000140003129                 db    0
-.rdata:000000014000312A                 db    0
-.rdata:000000014000312B                 db    0
-.rdata:000000014000312C                 db    0
-.rdata:000000014000312D                 db    0
-.rdata:000000014000312E                 db    0
-.rdata:000000014000312F                 db    0
-.rdata:0000000140003130                 db    0
-.rdata:0000000140003131                 db    0
-.rdata:0000000140003132                 db    0
-.rdata:0000000140003133                 db    0
-.rdata:0000000140003134                 db    0
-.rdata:0000000140003135                 db    0
-.rdata:0000000140003136                 db    0
-.rdata:0000000140003137                 db    0
-.rdata:0000000140003138                 db    0
-.rdata:0000000140003139                 db    0
-.rdata:000000014000313A                 db    0
-.rdata:000000014000313B                 db    0
-.rdata:000000014000313C                 db    0
-.rdata:000000014000313D                 db    0
-.rdata:000000014000313E                 db    0
-.rdata:000000014000313F                 db    0
-.rdata:0000000140003140                 db    0
-.rdata:0000000140003141                 db    0
-.rdata:0000000140003142                 db    0
-.rdata:0000000140003143                 db    0
-.rdata:0000000140003144 ; Debug information (IMAGE_DEBUG_TYPE_CODEVIEW)
-.rdata:0000000140003144 asc_140003144   db 'RSDS'               ; DATA XREF: .rdata:0000000140003014↑o
-.rdata:0000000140003144                                         ; CV signature
-.rdata:0000000140003148                 GUID <72ACA315h, 0F3E8h, 4264h, <8Eh, 86h, 6, 57h, 0D8h, 0F8h, 0EFh, \ ; GUID
-.rdata:0000000140003148                       50h>>
-.rdata:0000000140003158                 dd 14h                  ; Age
-.rdata:000000014000315C                 text "UTF-8", 'C:\Users\Emerald\source\repos\MessageBoxInAssembly\Mes' ; PdbFileName
-.rdata:0000000140003192                 text "UTF-8", 'sageBoxInAssembly\x64\Debug\MessageBoxInAssembly.pdb',0
-.rdata:00000001400031C7                 align 8
-.rdata:00000001400031C8 ; Debug information (IMAGE_DEBUG_TYPE_VC_FEATURE)
-.rdata:00000001400031C8 unk_1400031C8   db    0                 ; DATA XREF: .rdata:0000000140003030↑o
-.rdata:00000001400031C9                 db    0
-.rdata:00000001400031CA                 db    0
-.rdata:00000001400031CB                 db    0
-.rdata:00000001400031CC                 db    0
-.rdata:00000001400031CD                 db    0
-.rdata:00000001400031CE                 db    0
-.rdata:00000001400031CF                 db    0
-.rdata:00000001400031D0                 db    0
-.rdata:00000001400031D1                 db    0
-.rdata:00000001400031D2                 db    0
-.rdata:00000001400031D3                 db    0
-.rdata:00000001400031D4                 db    0
-.rdata:00000001400031D5                 db    0
-.rdata:00000001400031D6                 db    0
-.rdata:00000001400031D7                 db    0
-.rdata:00000001400031D8                 db    0
-.rdata:00000001400031D9                 db    0
-.rdata:00000001400031DA                 db    0
-.rdata:00000001400031DB                 db    0
-.rdata:00000001400031DC                 db    0
-.rdata:00000001400031DD                 db    0
-.rdata:00000001400031DE                 db    0
-.rdata:00000001400031DF                 db    0
-.rdata:00000001400031E0                 db    0
-.rdata:00000001400031E1                 db    0
-.rdata:00000001400031E2                 db    0
-.rdata:00000001400031E3                 db    0
-.rdata:00000001400031E4                 db    0
-.rdata:00000001400031E5                 db    0
-.rdata:00000001400031E6                 db    0
-.rdata:00000001400031E7                 db    0
-.rdata:00000001400031E8                 db    0
-.rdata:00000001400031E9                 db    0
-.rdata:00000001400031EA                 db    0
-.rdata:00000001400031EB                 db    0
-.rdata:00000001400031EC                 db    0
-.rdata:00000001400031ED                 db    0
-.rdata:00000001400031EE                 db    0
-.rdata:00000001400031EF                 db    0
-.rdata:00000001400031F0                 db    0
-.rdata:00000001400031F1                 db    0
-.rdata:00000001400031F2                 db    0
-.rdata:00000001400031F3                 db    0
-.rdata:00000001400031F4                 db    0
-.rdata:00000001400031F5                 db    0
-.rdata:00000001400031F6                 db    0
-.rdata:00000001400031F7                 db    0
-.rdata:00000001400031F8                 db    0
-.rdata:00000001400031F9                 db    0
-.rdata:00000001400031FA                 db    0
-.rdata:00000001400031FB                 db    0
-.rdata:00000001400031FC                 db    0
-.rdata:00000001400031FD                 db    0
-.rdata:00000001400031FE                 db    0
-.rdata:00000001400031FF                 db    0
-.rdata:0000000140003200                 db    0
-.rdata:0000000140003201                 db    0
-.rdata:0000000140003202                 db    0
-.rdata:0000000140003203                 db    0
-.rdata:0000000140003204                 db    0
-.rdata:0000000140003205                 db    0
-.rdata:0000000140003206                 db    0
-.rdata:0000000140003207                 db    0
-.rdata:0000000140003208                 db    0
-.rdata:0000000140003209                 db    0
-.rdata:000000014000320A                 db    0
-.rdata:000000014000320B                 db    0
-.rdata:000000014000320C                 db    0
-.rdata:000000014000320D                 db    0
-.rdata:000000014000320E                 db    0
-.rdata:000000014000320F                 db    0
-.rdata:0000000140003210                 db    0
-.rdata:0000000140003211                 db    0
-.rdata:0000000140003212                 db    0
-.rdata:0000000140003213                 db    0
-.rdata:0000000140003214                 db    0
-.rdata:0000000140003215                 db    0
-.rdata:0000000140003216                 db    0
-.rdata:0000000140003217                 db    0
-.rdata:0000000140003218                 db    0
-.rdata:0000000140003219                 db    0
-.rdata:000000014000321A                 db    0
-.rdata:000000014000321B                 db    0
-.rdata:000000014000321C                 db    0
-.rdata:000000014000321D                 db    0
-.rdata:000000014000321E                 db    0
-.rdata:000000014000321F                 db    0
-.rdata:0000000140003220                 db    0
-.rdata:0000000140003221                 db    0
-.rdata:0000000140003222                 db    0
-.rdata:0000000140003223                 db    0
-.rdata:0000000140003224                 db    0
-.rdata:0000000140003225                 db    0
-.rdata:0000000140003226                 db    0
-.rdata:0000000140003227                 db    0
-.rdata:0000000140003228                 db    0
-.rdata:0000000140003229                 db    0
-.rdata:000000014000322A                 db    0
-.rdata:000000014000322B                 db    0
-.rdata:000000014000322C                 db    0
-.rdata:000000014000322D                 db    0
-.rdata:000000014000322E                 db    0
-.rdata:000000014000322F                 db    0
-.rdata:0000000140003230                 db    0
-.rdata:0000000140003231                 db    0
-.rdata:0000000140003232                 db    0
-.rdata:0000000140003233                 db    0
-.rdata:0000000140003234                 db    0
-.rdata:0000000140003235                 db    0
-.rdata:0000000140003236                 db    0
-.rdata:0000000140003237                 db    0
-.rdata:0000000140003238                 db    0
-.rdata:0000000140003239                 db    0
-.rdata:000000014000323A                 db    0
-.rdata:000000014000323B                 db    0
-.rdata:000000014000323C                 db    0
-.rdata:000000014000323D                 db    0
-.rdata:000000014000323E                 db    0
-.rdata:000000014000323F                 db    0
-.rdata:0000000140003240                 db    0
-.rdata:0000000140003241                 db    0
-.rdata:0000000140003242                 db    0
-.rdata:0000000140003243                 db    0
-.rdata:0000000140003244                 db    0
-.rdata:0000000140003245                 db    0
-.rdata:0000000140003246                 db    0
-.rdata:0000000140003247                 db    0
-.rdata:0000000140003248                 db    0
-.rdata:0000000140003249                 db    0
-.rdata:000000014000324A                 db    0
-.rdata:000000014000324B                 db    0
-.rdata:000000014000324C                 db    0
-.rdata:000000014000324D                 db    0
-.rdata:000000014000324E                 db    0
-.rdata:000000014000324F                 db    0
-.rdata:0000000140003250                 db    0
-.rdata:0000000140003251                 db    0
-.rdata:0000000140003252                 db    0
-.rdata:0000000140003253                 db    0
-.rdata:0000000140003254                 db    0
-.rdata:0000000140003255                 db    0
-.rdata:0000000140003256                 db    0
-.rdata:0000000140003257                 db    0
-.rdata:0000000140003258                 db    0
-.rdata:0000000140003259                 db    0
-.rdata:000000014000325A                 db    0
-.rdata:000000014000325B                 db    0
-.rdata:000000014000325C                 db    0
-.rdata:000000014000325D                 db    0
-.rdata:000000014000325E                 db    0
-.rdata:000000014000325F                 db    0
-.rdata:0000000140003260                 db    0
-.rdata:0000000140003261                 db    0
-.rdata:0000000140003262                 db    0
-.rdata:0000000140003263                 db    0
-.rdata:0000000140003264                 db    0
-.rdata:0000000140003265                 db    0
-.rdata:0000000140003266                 db    0
-.rdata:0000000140003267                 db    0
-.rdata:0000000140003268                 db    0
-.rdata:0000000140003269                 db    0
-.rdata:000000014000326A                 db    0
-.rdata:000000014000326B                 db    0
-.rdata:000000014000326C                 db    0
-.rdata:000000014000326D                 db    0
-.rdata:000000014000326E                 db    0
-.rdata:000000014000326F                 db    0
-.rdata:0000000140003270                 db    0
-.rdata:0000000140003271                 db    0
-.rdata:0000000140003272                 db    0
-.rdata:0000000140003273                 db    0
-.rdata:0000000140003274                 db    0
-.rdata:0000000140003275                 db    0
-.rdata:0000000140003276                 db    0
-.rdata:0000000140003277                 db    0
-.rdata:0000000140003278                 db    0
-.rdata:0000000140003279                 db    0
-.rdata:000000014000327A                 db    0
-.rdata:000000014000327B                 db    0
-.rdata:000000014000327C                 db    0
-.rdata:000000014000327D                 db    0
-.rdata:000000014000327E                 db    0
-.rdata:000000014000327F                 db    0
-.rdata:0000000140003280                 db    0
-.rdata:0000000140003281                 db    0
-.rdata:0000000140003282                 db    0
-.rdata:0000000140003283                 db    0
-.rdata:0000000140003284                 db    0
-.rdata:0000000140003285                 db    0
-.rdata:0000000140003286                 db    0
-.rdata:0000000140003287                 db    0
-.rdata:0000000140003288                 db    0
-.rdata:0000000140003289                 db    0
-.rdata:000000014000328A                 db    0
-.rdata:000000014000328B                 db    0
-.rdata:000000014000328C                 db    0
-.rdata:000000014000328D                 db    0
-.rdata:000000014000328E                 db    0
-.rdata:000000014000328F                 db    0
-.rdata:0000000140003290                 db    0
-.rdata:0000000140003291                 db    0
-.rdata:0000000140003292                 db    0
-.rdata:0000000140003293                 db    0
-.rdata:0000000140003294                 db    0
-.rdata:0000000140003295                 db    0
-.rdata:0000000140003296                 db    0
-.rdata:0000000140003297                 db    0
-.rdata:0000000140003298                 db    0
-.rdata:0000000140003299                 db    0
-.rdata:000000014000329A                 db    0
-.rdata:000000014000329B                 db    0
-.rdata:000000014000329C                 db    0
-.rdata:000000014000329D                 db    0
-.rdata:000000014000329E                 db    0
-.rdata:000000014000329F                 db    0
-.rdata:00000001400032A0                 db    0
-.rdata:00000001400032A1                 db    0
-.rdata:00000001400032A2                 db    0
-.rdata:00000001400032A3                 db    0
-.rdata:00000001400032A4                 db    0
-.rdata:00000001400032A5                 db    0
-.rdata:00000001400032A6                 db    0
-.rdata:00000001400032A7                 db    0
-.rdata:00000001400032A8                 db    0
-.rdata:00000001400032A9                 db    0
-.rdata:00000001400032AA                 db    0
-.rdata:00000001400032AB                 db    0
-.rdata:00000001400032AC                 db    0
-.rdata:00000001400032AD                 db    0
-.rdata:00000001400032AE                 db    0
-.rdata:00000001400032AF                 db    0
-.rdata:00000001400032B0                 db    0
-.rdata:00000001400032B1                 db    0
-.rdata:00000001400032B2                 db    0
-.rdata:00000001400032B3                 db    0
-.rdata:00000001400032B4                 db    0
-.rdata:00000001400032B5                 db    0
-.rdata:00000001400032B6                 db    0
-.rdata:00000001400032B7                 db    0
-.rdata:00000001400032B8                 db    0
-.rdata:00000001400032B9                 db    0
-.rdata:00000001400032BA                 db    0
-.rdata:00000001400032BB                 db    0
-.rdata:00000001400032BC                 db    0
-.rdata:00000001400032BD                 db    0
-.rdata:00000001400032BE                 db    0
-.rdata:00000001400032BF                 db    0
-.rdata:00000001400032C0                 db    0
-.rdata:00000001400032C1                 db    0
-.rdata:00000001400032C2                 db    0
-.rdata:00000001400032C3                 db    0
-.rdata:00000001400032C4                 db    0
-.rdata:00000001400032C5                 db    0
-.rdata:00000001400032C6                 db    0
-.rdata:00000001400032C7                 db    0
-.rdata:00000001400032C8                 db    0
-.rdata:00000001400032C9                 db    0
-.rdata:00000001400032CA                 db    0
-.rdata:00000001400032CB                 db    0
-.rdata:00000001400032CC                 db    0
-.rdata:00000001400032CD                 db    0
-.rdata:00000001400032CE                 db    0
-.rdata:00000001400032CF                 db    0
-.rdata:00000001400032D0                 db    0
-.rdata:00000001400032D1                 db    0
-.rdata:00000001400032D2                 db    0
-.rdata:00000001400032D3                 db    0
-.rdata:00000001400032D4                 db    0
-.rdata:00000001400032D5                 db    0
-.rdata:00000001400032D6                 db    0
-.rdata:00000001400032D7                 db    0
-.rdata:00000001400032D8                 db    0
-.rdata:00000001400032D9                 db    0
-.rdata:00000001400032DA                 db    0
-.rdata:00000001400032DB                 db    0
-.rdata:00000001400032DC                 db    0
-.rdata:00000001400032DD                 db    0
-.rdata:00000001400032DE                 db    0
-.rdata:00000001400032DF                 db    0
-.rdata:00000001400032E0                 db    0
-.rdata:00000001400032E1                 db    0
-.rdata:00000001400032E2                 db    0
-.rdata:00000001400032E3                 db    0
-.rdata:00000001400032E4                 db    0
-.rdata:00000001400032E5                 db    0
-.rdata:00000001400032E6                 db    0
-.rdata:00000001400032E7                 db    0
-.rdata:00000001400032E8                 db    0
-.rdata:00000001400032E9                 db    0
-.rdata:00000001400032EA                 db    0
-.rdata:00000001400032EB                 db    0
-.rdata:00000001400032EC                 db    0
-.rdata:00000001400032ED                 db    0
-.rdata:00000001400032EE                 db    0
-.rdata:00000001400032EF                 db    0
-.rdata:00000001400032F0                 db    0
-.rdata:00000001400032F1                 db    0
-.rdata:00000001400032F2                 db    0
-.rdata:00000001400032F3                 db    0
-.rdata:00000001400032F4                 db    0
-.rdata:00000001400032F5                 db    0
-.rdata:00000001400032F6                 db    0
-.rdata:00000001400032F7                 db    0
-.rdata:00000001400032F8                 db    0
-.rdata:00000001400032F9                 db    0
-.rdata:00000001400032FA                 db    0
-.rdata:00000001400032FB                 db    0
-.rdata:00000001400032FC                 db    0
-.rdata:00000001400032FD                 db    0
-.rdata:00000001400032FE                 db    0
-.rdata:00000001400032FF                 db    0
-.rdata:0000000140003300                 db    0
-.rdata:0000000140003301                 db    0
-.rdata:0000000140003302                 db    0
-.rdata:0000000140003303                 db    0
-.rdata:0000000140003304                 db    0
-.rdata:0000000140003305                 db    0
-.rdata:0000000140003306                 db    0
-.rdata:0000000140003307                 db    0
-.rdata:0000000140003308                 db    0
-.rdata:0000000140003309                 db    0
-.rdata:000000014000330A                 db    0
-.rdata:000000014000330B                 db    0
-.rdata:000000014000330C                 db    0
-.rdata:000000014000330D                 db    0
-.rdata:000000014000330E                 db    0
-.rdata:000000014000330F                 db    0
-.rdata:0000000140003310                 db    0
-.rdata:0000000140003311                 db    0
-.rdata:0000000140003312                 db    0
-.rdata:0000000140003313                 db    0
-.rdata:0000000140003314                 db    0
-.rdata:0000000140003315                 db    0
-.rdata:0000000140003316                 db    0
-.rdata:0000000140003317                 db    0
-.rdata:0000000140003318                 db    0
-.rdata:0000000140003319                 db    0
-.rdata:000000014000331A                 db    0
-.rdata:000000014000331B                 db    0
-.rdata:000000014000331C                 db    0
-.rdata:000000014000331D                 db    0
-.rdata:000000014000331E                 db    0
-.rdata:000000014000331F                 db    0
-.rdata:0000000140003320                 db    0
-.rdata:0000000140003321                 db    0
-.rdata:0000000140003322                 db    0
-.rdata:0000000140003323                 db    0
-.rdata:0000000140003324                 db    0
-.rdata:0000000140003325                 db    0
-.rdata:0000000140003326                 db    0
-.rdata:0000000140003327                 db    0
-.rdata:0000000140003328                 db    0
-.rdata:0000000140003329                 db    0
-.rdata:000000014000332A                 db    0
-.rdata:000000014000332B                 db    0
-.rdata:000000014000332C                 db    0
-.rdata:000000014000332D                 db    0
-.rdata:000000014000332E                 db    0
-.rdata:000000014000332F                 db    0
-.rdata:0000000140003330                 db    0
-.rdata:0000000140003331                 db    0
-.rdata:0000000140003332                 db    0
-.rdata:0000000140003333                 db    0
-.rdata:0000000140003334                 db    0
-.rdata:0000000140003335                 db    0
-.rdata:0000000140003336                 db    0
-.rdata:0000000140003337                 db    0
-.rdata:0000000140003338                 db    0
-.rdata:0000000140003339                 db    0
-.rdata:000000014000333A                 db    0
-.rdata:000000014000333B                 db    0
-.rdata:000000014000333C                 db    0
-.rdata:000000014000333D                 db    0
-.rdata:000000014000333E                 db    0
-.rdata:000000014000333F                 db    0
-.rdata:0000000140003340                 db    0
-.rdata:0000000140003341                 db    0
-.rdata:0000000140003342                 db    0
-.rdata:0000000140003343                 db    0
-.rdata:0000000140003344                 db    0
-.rdata:0000000140003345                 db    0
-.rdata:0000000140003346                 db    0
-.rdata:0000000140003347                 db    0
-.rdata:0000000140003348                 db    0
-.rdata:0000000140003349                 db    0
-.rdata:000000014000334A                 db    0
-.rdata:000000014000334B                 db    0
-.rdata:000000014000334C                 db    0
-.rdata:000000014000334D                 db    0
-.rdata:000000014000334E                 db    0
-.rdata:000000014000334F                 db    0
-.rdata:0000000140003350                 db    0
-.rdata:0000000140003351                 db    0
-.rdata:0000000140003352                 db    0
-.rdata:0000000140003353                 db    0
-.rdata:0000000140003354                 db    0
-.rdata:0000000140003355                 db    0
-.rdata:0000000140003356                 db    0
-.rdata:0000000140003357                 db    0
-.rdata:0000000140003358                 db    0
-.rdata:0000000140003359                 db    0
-.rdata:000000014000335A                 db    0
-.rdata:000000014000335B                 db    0
-.rdata:000000014000335C                 db    0
-.rdata:000000014000335D                 db    0
-.rdata:000000014000335E                 db    0
-.rdata:000000014000335F                 db    0
-.rdata:0000000140003360                 db    0
-.rdata:0000000140003361                 db    0
-.rdata:0000000140003362                 db    0
-.rdata:0000000140003363                 db    0
-.rdata:0000000140003364                 db    0
-.rdata:0000000140003365                 db    0
-.rdata:0000000140003366                 db    0
-.rdata:0000000140003367                 db    0
-.rdata:0000000140003368                 db    0
-.rdata:0000000140003369                 db    0
-.rdata:000000014000336A                 db    0
-.rdata:000000014000336B                 db    0
-.rdata:000000014000336C                 db    0
-.rdata:000000014000336D                 db    0
-.rdata:000000014000336E                 db    0
-.rdata:000000014000336F                 db    0
-.rdata:0000000140003370                 db    0
-.rdata:0000000140003371                 db    0
-.rdata:0000000140003372                 db    0
-.rdata:0000000140003373                 db    0
-.rdata:0000000140003374                 db    0
-.rdata:0000000140003375                 db    0
-.rdata:0000000140003376                 db    0
-.rdata:0000000140003377                 db    0
-.rdata:0000000140003378                 db    0
-.rdata:0000000140003379                 db    0
-.rdata:000000014000337A                 db    0
-.rdata:000000014000337B                 db    0
-.rdata:000000014000337C                 db    0
-.rdata:000000014000337D                 db    0
-.rdata:000000014000337E                 db    0
-.rdata:000000014000337F                 db    0
-.rdata:0000000140003380                 db    0
-.rdata:0000000140003381                 db    0
-.rdata:0000000140003382                 db    0
-.rdata:0000000140003383                 db    0
-.rdata:0000000140003384                 db    0
-.rdata:0000000140003385                 db    0
-.rdata:0000000140003386                 db    0
-.rdata:0000000140003387                 db    0
-.rdata:0000000140003388                 db    0
-.rdata:0000000140003389                 db    0
-.rdata:000000014000338A                 db    0
-.rdata:000000014000338B                 db    0
-.rdata:000000014000338C                 db    0
-.rdata:000000014000338D                 db    0
-.rdata:000000014000338E                 db    0
-.rdata:000000014000338F                 db    0
-.rdata:0000000140003390                 db    0
-.rdata:0000000140003391                 db    0
-.rdata:0000000140003392                 db    0
-.rdata:0000000140003393                 db    0
-.rdata:0000000140003394                 db    0
-.rdata:0000000140003395                 db    0
-.rdata:0000000140003396                 db    0
-.rdata:0000000140003397                 db    0
-.rdata:0000000140003398                 db    0
-.rdata:0000000140003399                 db    0
-.rdata:000000014000339A                 db    0
-.rdata:000000014000339B                 db    0
-.rdata:000000014000339C                 db    0
-.rdata:000000014000339D                 db    0
-.rdata:000000014000339E                 db    0
-.rdata:000000014000339F                 db    0
-.rdata:00000001400033A0                 db    0
-.rdata:00000001400033A1                 db    0
-.rdata:00000001400033A2                 db    0
-.rdata:00000001400033A3                 db    0
-.rdata:00000001400033A4                 db    0
-.rdata:00000001400033A5                 db    0
-.rdata:00000001400033A6                 db    0
-.rdata:00000001400033A7                 db    0
-.rdata:00000001400033A8                 db    0
-.rdata:00000001400033A9                 db    0
-.rdata:00000001400033AA                 db    0
-.rdata:00000001400033AB                 db    0
-.rdata:00000001400033AC                 db    0
-.rdata:00000001400033AD                 db    0
-.rdata:00000001400033AE                 db    0
-.rdata:00000001400033AF                 db    0
-.rdata:00000001400033B0                 db    0
-.rdata:00000001400033B1                 db    0
-.rdata:00000001400033B2                 db    0
-.rdata:00000001400033B3                 db    0
-.rdata:00000001400033B4                 db    0
-.rdata:00000001400033B5                 db    0
-.rdata:00000001400033B6                 db    0
-.rdata:00000001400033B7                 db    0
-.rdata:00000001400033B8                 db    0
-.rdata:00000001400033B9                 db    0
-.rdata:00000001400033BA                 db    0
-.rdata:00000001400033BB                 db    0
-.rdata:00000001400033BC                 db    0
-.rdata:00000001400033BD                 db    0
-.rdata:00000001400033BE                 db    0
-.rdata:00000001400033BF                 db    0
-.rdata:00000001400033C0                 db    0
-.rdata:00000001400033C1                 db    0
-.rdata:00000001400033C2                 db    0
-.rdata:00000001400033C3                 db    0
-.rdata:00000001400033C4                 db    0
-.rdata:00000001400033C5                 db    0
-.rdata:00000001400033C6                 db    0
-.rdata:00000001400033C7                 db    0
-.rdata:00000001400033C8                 db    0
-.rdata:00000001400033C9                 db    0
-.rdata:00000001400033CA                 db    0
-.rdata:00000001400033CB                 db    0
-.rdata:00000001400033CC                 db    0
-.rdata:00000001400033CD                 db    0
-.rdata:00000001400033CE                 db    0
-.rdata:00000001400033CF                 db    0
-.rdata:00000001400033D0                 db    0
-.rdata:00000001400033D1                 db    0
-.rdata:00000001400033D2                 db    0
-.rdata:00000001400033D3                 db    0
-.rdata:00000001400033D4                 db    0
-.rdata:00000001400033D5                 db    0
-.rdata:00000001400033D6                 db    0
-.rdata:00000001400033D7                 db    0
-.rdata:00000001400033D8                 db    0
-.rdata:00000001400033D9                 db    0
-.rdata:00000001400033DA                 db    0
-.rdata:00000001400033DB                 db    0
-.rdata:00000001400033DC                 db    0
-.rdata:00000001400033DD                 db    0
-.rdata:00000001400033DE                 db    0
-.rdata:00000001400033DF                 db    0
-.rdata:00000001400033E0                 db    0
-.rdata:00000001400033E1                 db    0
-.rdata:00000001400033E2                 db    0
-.rdata:00000001400033E3                 db    0
-.rdata:00000001400033E4                 db    0
-.rdata:00000001400033E5                 db    0
-.rdata:00000001400033E6                 db    0
-.rdata:00000001400033E7                 db    0
-.rdata:00000001400033E8                 db    0
-.rdata:00000001400033E9                 db    0
-.rdata:00000001400033EA                 db    0
-.rdata:00000001400033EB                 db    0
-.rdata:00000001400033EC                 db    0
-.rdata:00000001400033ED                 db    0
-.rdata:00000001400033EE                 db    0
-.rdata:00000001400033EF                 db    0
-.rdata:00000001400033F0                 db    0
-.rdata:00000001400033F1                 db    0
-.rdata:00000001400033F2                 db    0
-.rdata:00000001400033F3                 db    0
-.rdata:00000001400033F4                 db    0
-.rdata:00000001400033F5                 db    0
-.rdata:00000001400033F6                 db    0
-.rdata:00000001400033F7                 db    0
-.rdata:00000001400033F8                 db    0
-.rdata:00000001400033F9                 db    0
-.rdata:00000001400033FA                 db    0
-.rdata:00000001400033FB                 db    0
-.rdata:00000001400033FC                 db    0
-.rdata:00000001400033FD                 db    0
-.rdata:00000001400033FE                 db    0
-.rdata:00000001400033FF                 db    0
-.rdata:0000000140003400                 align 1000h
-.rdata:0000000140003400 _rdata          ends
-.rdata:0000000140003400
-.data:0000000140004000 ; Section 3. (virtual address 00004000)
-.data:0000000140004000 ; Virtual size                  : 00000268 (    616.)
-.data:0000000140004000 ; Section size in file          : 00000400 (   1024.)
-.data:0000000140004000 ; Offset to raw data for section: 00001A00
-.data:0000000140004000 ; Flags C0000040: Data Readable Writable
-.data:0000000140004000 ; Alignment     : default
-.data:0000000140004000 ; ===========================================================================
-.data:0000000140004000
-.data:0000000140004000 ; Segment type: Pure data
-.data:0000000140004000 ; Segment permissions: Read/Write
-.data:0000000140004000 _data           segment para public 'DATA' use64
-.data:0000000140004000                 assume cs:_data
-.data:0000000140004000                 ;org 140004000h
-.data:0000000140004000 ; unsigned __int64 hwnd
-.data:0000000140004000 hwnd            dq 0
-.data:0000000140004008 ; WCHAR testTitle
-.data:0000000140004008 testTitle       dw 54h                  ; DATA XREF: WinMain+16↑o
-.data:000000014000400A                 db  65h ; e
-.data:000000014000400B                 db    0
-.data:000000014000400C                 db  73h ; s
-.data:000000014000400D                 db    0
-.data:000000014000400E                 db  74h ; t
-.data:000000014000400F                 db    0
-.data:0000000140004010                 db    0
-.data:0000000140004011                 db    0
-.data:0000000140004012 ; WCHAR MrBrown
-.data:0000000140004012 MrBrown         dw 4Dh                  ; DATA XREF: WinMain+36↑o
-.data:0000000140004014 aRBrown:
-.data:0000000140004014                 text "UTF-16LE", 'r. Brown',0
-.data:0000000140004026 ; WCHAR Mommy
-.data:0000000140004026 Mommy           dw 4Dh                  ; DATA XREF: WinMain+4F↑o
-.data:0000000140004028 aOooooomyyyyyy:
-.data:0000000140004028                 text "UTF-16LE", 'oooooomyyyyyy',0
-.data:0000000140004044 ; WCHAR Error
-.data:0000000140004044 Error           dw 45h                  ; DATA XREF: WinMain+76↑o
-.data:0000000140004046                 db  72h ; r
-.data:0000000140004047                 db    0
-.data:0000000140004048                 db  72h ; r
-.data:0000000140004049                 db    0
-.data:000000014000404A                 db  6Fh ; o
-.data:000000014000404B                 db    0
-.data:000000014000404C                 db  72h ; r
-.data:000000014000404D                 db    0
-.data:000000014000404E                 db    0
-.data:000000014000404F                 db    0
-.data:0000000140004050 ; WCHAR Questions
-.data:0000000140004050 Questions:                              ; DATA XREF: WinMain+96↑o
-.data:0000000140004050                 text "UTF-16LE", 'Questions',0
-.data:0000000140004064 ; WCHAR QuestionText
-.data:0000000140004064 QuestionText    dw 48h                  ; DATA XREF: WinMain+8F↑o
-.data:0000000140004066                 db  61h ; a
-.data:0000000140004067                 db    0
-.data:0000000140004068                 db  76h ; v
-.data:0000000140004069                 db    0
-.data:000000014000406A                 db  65h ; e
-.data:000000014000406B                 db    0
-.data:000000014000406C                 db  20h
-.data:000000014000406D                 db    0
-.data:000000014000406E                 db  61h ; a
-.data:000000014000406F                 db    0
-.data:0000000140004070                 db  20h
-.data:0000000140004071                 db    0
-.data:0000000140004072                 db  51h ; Q
-.data:0000000140004073                 db    0
-.data:0000000140004074                 db  75h ; u
-.data:0000000140004075                 db    0
-.data:0000000140004076                 db  65h ; e
-.data:0000000140004077                 db    0
-.data:0000000140004078                 db  73h ; s
-.data:0000000140004079                 db    0
-.data:000000014000407A                 db  74h ; t
-.data:000000014000407B                 db    0
-.data:000000014000407C                 db  69h ; i
-.data:000000014000407D                 db    0
-.data:000000014000407E                 db  6Fh ; o
-.data:000000014000407F                 db    0
-.data:0000000140004080                 db  6Eh ; n
-.data:0000000140004081                 db    0
-.data:0000000140004082                 db  3Fh ; ?
-.data:0000000140004083                 db    0
-.data:0000000140004084                 db  20h
-.data:0000000140004085                 db    0
-.data:0000000140004086                 db  52h ; R
-.data:0000000140004087                 db    0
-.data:0000000140004088                 db  61h ; a
-.data:0000000140004089                 db    0
-.data:000000014000408A                 db  69h ; i
-.data:000000014000408B                 db    0
-.data:000000014000408C                 db  73h ; s
-.data:000000014000408D                 db    0
-.data:000000014000408E                 db  65h ; e
-.data:000000014000408F                 db    0
-.data:0000000140004090                 db  20h
-.data:0000000140004091                 db    0
-.data:0000000140004092                 db  59h ; Y
-.data:0000000140004093                 db    0
-.data:0000000140004094                 db  6Fh ; o
-.data:0000000140004095                 db    0
-.data:0000000140004096                 db  75h ; u
-.data:0000000140004097                 db    0
-.data:0000000140004098                 db  72h ; r
-.data:0000000140004099                 db    0
-.data:000000014000409A                 db  20h
-.data:000000014000409B                 db    0
-.data:000000014000409C                 db  48h ; H
-.data:000000014000409D                 db    0
-.data:000000014000409E                 db  61h ; a
-.data:000000014000409F                 db    0
-.data:00000001400040A0                 db  6Eh ; n
-.data:00000001400040A1                 db    0
-.data:00000001400040A2                 db  64h ; d
-.data:00000001400040A3                 db    0
-.data:00000001400040A4                 db  2Eh ; .
-.data:00000001400040A5                 db    0
-.data:00000001400040A6                 db    0
-.data:00000001400040A7                 db    0
-.data:00000001400040A8 ; WCHAR MommyTitle
-.data:00000001400040A8 MommyTitle      dw 4Dh                  ; DATA XREF: WinMain+56↑o
-.data:00000001400040AA                 db  6Fh ; o
-.data:00000001400040AB                 db    0
-.data:00000001400040AC                 db  6Dh ; m
-.data:00000001400040AD                 db    0
-.data:00000001400040AE                 db  6Dh ; m
-.data:00000001400040AF                 db    0
-.data:00000001400040B0                 db  79h ; y
-.data:00000001400040B1                 db    0
-.data:00000001400040B2                 db    0
-.data:00000001400040B3                 db    0
-.data:00000001400040B4 ; WCHAR NoVirusMsg
-.data:00000001400040B4 NoVirusMsg      dw 45h                  ; DATA XREF: WinMain+6F↑o
-.data:00000001400040B6                 db  6Dh ; m
-.data:00000001400040B7                 db    0
-.data:00000001400040B8                 db  65h ; e
-.data:00000001400040B9                 db    0
-.data:00000001400040BA                 db  72h ; r
-.data:00000001400040BB                 db    0
-.data:00000001400040BC                 db  61h ; a
-.data:00000001400040BD                 db    0
-.data:00000001400040BE                 db  6Ch ; l
-.data:00000001400040BF                 db    0
-.data:00000001400040C0                 db  64h ; d
-.data:00000001400040C1                 db    0
-.data:00000001400040C2                 db  20h
-.data:00000001400040C3                 db    0
-.data:00000001400040C4                 db  64h ; d
-.data:00000001400040C5                 db    0
-.data:00000001400040C6                 db  6Fh ; o
-.data:00000001400040C7                 db    0
-.data:00000001400040C8                 db  65h ; e
-.data:00000001400040C9                 db    0
-.data:00000001400040CA                 db  73h ; s
-.data:00000001400040CB                 db    0
-.data:00000001400040CC                 db  20h
-.data:00000001400040CD                 db    0
-.data:00000001400040CE                 db  6Eh ; n
-.data:00000001400040CF                 db    0
-.data:00000001400040D0                 db  6Fh ; o
-.data:00000001400040D1                 db    0
-.data:00000001400040D2                 db  74h ; t
-.data:00000001400040D3                 db    0
-.data:00000001400040D4                 db  20h
-.data:00000001400040D5                 db    0
-.data:00000001400040D6                 db  6Dh ; m
-.data:00000001400040D7                 db    0
-.data:00000001400040D8                 db  61h ; a
-.data:00000001400040D9                 db    0
-.data:00000001400040DA                 db  6Bh ; k
-.data:00000001400040DB                 db    0
-.data:00000001400040DC                 db  65h ; e
-.data:00000001400040DD                 db    0
-.data:00000001400040DE                 db  20h
-.data:00000001400040DF                 db    0
-.data:00000001400040E0                 db  76h ; v
-.data:00000001400040E1                 db    0
-.data:00000001400040E2                 db  69h ; i
-.data:00000001400040E3                 db    0
-.data:00000001400040E4                 db  72h ; r
-.data:00000001400040E5                 db    0
-.data:00000001400040E6                 db  75h ; u
-.data:00000001400040E7                 db    0
-.data:00000001400040E8                 db  73h ; s
-.data:00000001400040E9                 db    0
-.data:00000001400040EA                 db  65h ; e
-.data:00000001400040EB                 db    0
-.data:00000001400040EC                 db  73h ; s
-.data:00000001400040ED                 db    0
-.data:00000001400040EE                 db  2Eh ; .
-.data:00000001400040EF                 db    0
-.data:00000001400040F0                 db    0
-.data:00000001400040F1                 db    0
-.data:00000001400040F2 ; WCHAR helloMsg
-.data:00000001400040F2 helloMsg        dw 48h                  ; DATA XREF: WinMain+F↑o
-.data:00000001400040F4 aElloWorld:
-.data:00000001400040F4                 text "UTF-16LE", 'ello World',0
-.data:000000014000410A ; WCHAR MrBrownMsg
-.data:000000014000410A MrBrownMsg      dw 48h                  ; DATA XREF: WinMain+2F↑o
-.data:000000014000410C aElloMrBrown:
-.data:000000014000410C                 text "UTF-16LE", 'ello Mr. Brown!',0
-.data:000000014000412C                 align 1000h
-.data:000000014000412C _data           ends
-.data:000000014000412C
-.idata:0000000140005000 ; Section 4. (virtual address 00005000)
-.idata:0000000140005000 ; Virtual size                  : 00000206 (    518.)
-.idata:0000000140005000 ; Section size in file          : 00000400 (   1024.)
-.idata:0000000140005000 ; Offset to raw data for section: 00001E00
-.idata:0000000140005000 ; Flags 40000040: Data Readable
-.idata:0000000140005000 ; Alignment     : default
-.idata:0000000140005000 ;
-.idata:0000000140005000 ; Imports from USER32.dll
-.idata:0000000140005000 ;
-.idata:0000000140005000 ; ===========================================================================
-.idata:0000000140005000
-.idata:0000000140005000 ; Segment type: Externs
-.idata:0000000140005000 ; _idata
-.idata:0000000140005000 ; int (__stdcall *MessageBoxExW)(HWND hWnd, LPCWSTR lpText, LPCWSTR lpCaption, UINT uType, WORD wLanguageId)
-.idata:0000000140005000                 extrn __imp_MessageBoxExW:qword
-.idata:0000000140005000                                         ; DATA XREF: MessageBoxExW_0↑r
-.idata:0000000140005000                                         ; .idata:0000000140005070↓o
-.idata:0000000140005008                 extrn _USER32_NULL_THUNK_DATA:byte:58h
-.idata:0000000140005008
-.idata:0000000140005060 ; ===========================================================================
-.idata:0000000140005060
-.idata:0000000140005060 ; Segment type: Pure data
-.idata:0000000140005060 ; Segment permissions: Read
-.idata:0000000140005060 _idata          segment para public 'DATA' use64
-.idata:0000000140005060                 assume cs:_idata
-.idata:0000000140005060                 ;org 140005060h
-.idata:0000000140005060 __IMPORT_DESCRIPTOR_USER32 dd rva off_140005088 ; Import Name Table
-.idata:0000000140005064                 dd 0                    ; Time stamp
-.idata:0000000140005068                 dd 0                    ; Forwarder Chain
-.idata:000000014000506C                 dd rva aUser32Dll       ; DLL Name
-.idata:0000000140005070                 dd rva __imp_MessageBoxExW ; Import Address Table
-.idata:0000000140005074 __NULL_IMPORT_DESCRIPTOR db    0
-.idata:0000000140005075                 db    0
-.idata:0000000140005076                 db    0
-.idata:0000000140005077                 db    0
-.idata:0000000140005078                 db    0
-.idata:0000000140005079                 db    0
-.idata:000000014000507A                 db    0
-.idata:000000014000507B                 db    0
-.idata:000000014000507C                 db    0
-.idata:000000014000507D                 db    0
-.idata:000000014000507E                 db    0
-.idata:000000014000507F                 db    0
-.idata:0000000140005080                 db    0
-.idata:0000000140005081                 db    0
-.idata:0000000140005082                 db    0
-.idata:0000000140005083                 db    0
-.idata:0000000140005084                 db    0
-.idata:0000000140005085                 db    0
-.idata:0000000140005086                 db    0
-.idata:0000000140005087                 db    0
-.idata:0000000140005088 ;
-.idata:0000000140005088 ; Import names for USER32.dll
-.idata:0000000140005088 ;
-.idata:0000000140005088 off_140005088   dq rva word_1400050E8   ; DATA XREF: .idata:__IMPORT_DESCRIPTOR_USER32↑o
-.idata:0000000140005090                 dq 0
-.idata:0000000140005098                 db    0
-.idata:0000000140005099                 db    0
-.idata:000000014000509A                 db    0
-.idata:000000014000509B                 db    0
-.idata:000000014000509C                 db    0
-.idata:000000014000509D                 db    0
-.idata:000000014000509E                 db    0
-.idata:000000014000509F                 db    0
-.idata:00000001400050A0                 db    0
-.idata:00000001400050A1                 db    0
-.idata:00000001400050A2                 db    0
-.idata:00000001400050A3                 db    0
-.idata:00000001400050A4                 db    0
-.idata:00000001400050A5                 db    0
-.idata:00000001400050A6                 db    0
-.idata:00000001400050A7                 db    0
-.idata:00000001400050A8                 db    0
-.idata:00000001400050A9                 db    0
-.idata:00000001400050AA                 db    0
-.idata:00000001400050AB                 db    0
-.idata:00000001400050AC                 db    0
-.idata:00000001400050AD                 db    0
-.idata:00000001400050AE                 db    0
-.idata:00000001400050AF                 db    0
-.idata:00000001400050B0                 db    0
-.idata:00000001400050B1                 db    0
-.idata:00000001400050B2                 db    0
-.idata:00000001400050B3                 db    0
-.idata:00000001400050B4                 db    0
-.idata:00000001400050B5                 db    0
-.idata:00000001400050B6                 db    0
-.idata:00000001400050B7                 db    0
-.idata:00000001400050B8                 db    0
-.idata:00000001400050B9                 db    0
-.idata:00000001400050BA                 db    0
-.idata:00000001400050BB                 db    0
-.idata:00000001400050BC                 db    0
-.idata:00000001400050BD                 db    0
-.idata:00000001400050BE                 db    0
-.idata:00000001400050BF                 db    0
-.idata:00000001400050C0                 db    0
-.idata:00000001400050C1                 db    0
-.idata:00000001400050C2                 db    0
-.idata:00000001400050C3                 db    0
-.idata:00000001400050C4                 db    0
-.idata:00000001400050C5                 db    0
-.idata:00000001400050C6                 db    0
-.idata:00000001400050C7                 db    0
-.idata:00000001400050C8                 db    0
-.idata:00000001400050C9                 db    0
-.idata:00000001400050CA                 db    0
-.idata:00000001400050CB                 db    0
-.idata:00000001400050CC                 db    0
-.idata:00000001400050CD                 db    0
-.idata:00000001400050CE                 db    0
-.idata:00000001400050CF                 db    0
-.idata:00000001400050D0                 db    0
-.idata:00000001400050D1                 db    0
-.idata:00000001400050D2                 db    0
-.idata:00000001400050D3                 db    0
-.idata:00000001400050D4                 db    0
-.idata:00000001400050D5                 db    0
-.idata:00000001400050D6                 db    0
-.idata:00000001400050D7                 db    0
-.idata:00000001400050D8                 db    0
-.idata:00000001400050D9                 db    0
-.idata:00000001400050DA                 db    0
-.idata:00000001400050DB                 db    0
-.idata:00000001400050DC                 db    0
-.idata:00000001400050DD                 db    0
-.idata:00000001400050DE                 db    0
-.idata:00000001400050DF                 db    0
-.idata:00000001400050E0                 db    0
-.idata:00000001400050E1                 db    0
-.idata:00000001400050E2                 db    0
-.idata:00000001400050E3                 db    0
-.idata:00000001400050E4                 db    0
-.idata:00000001400050E5                 db    0
-.idata:00000001400050E6                 db    0
-.idata:00000001400050E7                 db    0
-.idata:00000001400050E8 word_1400050E8  dw 286h                 ; DATA XREF: .idata:off_140005088↑o
-.idata:00000001400050EA                 db 'MessageBoxExW',0
-.idata:00000001400050F8 aUser32Dll      db 'USER32.dll',0       ; DATA XREF: .idata:000000014000506C↑o
-.idata:0000000140005103                 align 1000h
-.idata:0000000140005103 _idata          ends
-.idata:0000000140005103
-.idata:0000000140005103
-.idata:0000000140005103                 end start
+.text:0000000140001000
+.text:0000000140001000 ; =============== S U B R O U T I N E =======================================
+.text:0000000140001000
+.text:0000000140001000 ; Attributes: bp-based frame
+.text:0000000140001000
+.text:0000000140001000 ; int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
+.text:0000000140001000                 public WinMain
+.text:0000000140001000 WinMain         proc near
+.text:0000000140001000                 push    rbp             ; wLanguageId
+.text:0000000140001001                 mov     rbp, rsp
+.text:0000000140001004                 sub     rsp, 20h
+.text:0000000140001008                 mov     rcx, 0          ; hWnd
+.text:000000014000100F                 lea     rdx, helloMsg   ; lpText
+.text:0000000140001016                 lea     r8, testTitle   ; lpCaption
+.text:000000014000101D                 mov     r9d, 40h ; '@'  ; uType
+.text:0000000140001023                 call    MessageBoxExW_0
+.text:0000000140001028                 mov     rcx, 0          ; hWnd
+.text:000000014000102F                 lea     rdx, MrBrownMsg ; lpText
+.text:0000000140001036                 lea     r8, MrBrown     ; lpCaption
+.text:000000014000103D                 mov     r9d, 40h ; '@'  ; uType
+.text:0000000140001043                 call    MessageBoxExW_0
+.text:0000000140001048                 mov     rcx, 0          ; hWnd
+.text:000000014000104F                 lea     rdx, Mommy      ; lpText
+.text:0000000140001056                 lea     r8, MommyTitle  ; lpCaption
+.text:000000014000105D                 mov     r9d, 30h ; '0'  ; uType
+.text:0000000140001063                 call    MessageBoxExW_0
+.text:0000000140001068                 mov     rcx, 0          ; hWnd
+.text:000000014000106F                 lea     rdx, NoVirusMsg ; lpText
+.text:0000000140001076                 lea     r8, Error       ; lpCaption
+.text:000000014000107D                 mov     r9d, 10h        ; uType
+.text:0000000140001083                 call    MessageBoxExW_0
+.text:0000000140001088                 mov     rcx, 0          ; hWnd
+.text:000000014000108F                 lea     rdx, QuestionText ; lpText
+.text:0000000140001096                 lea     r8, Questions   ; "Questions"
+.text:000000014000109D                 mov     r9d, 20h ; ' '  ; uType
+.text:00000001400010A3                 call    MessageBoxExW_0
+.text:00000001400010A8                 add     rsp, 20h
+.text:00000001400010AC                 pop     rbx
+.text:00000001400010AD                 xor     rax, rax
+.text:00000001400010B0                 retn
+.text:00000001400010B0 WinMain         endp
+.text:00000001400010B0
+.text:00000001400010B1 ; [00000006 BYTES: COLLAPSED FUNCTION MessageBoxExW_0. PRESS CTRL-NUMPAD+ TO EXPAND]
+.text:00000001400010B7                 align 200h
+.text:0000000140001200                 dq 1C0h dup(?)
+.text:0000000140001200 _text           ends
+.text:0000000140001200
+.idata:0000000140002000 ; Section 2. (virtual address 00002000)
+.idata:0000000140002000 ; Virtual size                  : 00000264 (    612.)
+.idata:0000000140002000 ; Section size in file          : 00000400 (   1024.)
+.idata:0000000140002000 ; Offset to raw data for section: 00000600
+.idata:0000000140002000 ; Flags 40000040: Data Readable
+.idata:0000000140002000 ; Alignment     : default
+.idata:0000000140002000 ;
+.idata:0000000140002000 ; Imports from USER32.dll
+.idata:0000000140002000 ;
+.idata:0000000140002000 ; ===========================================================================
+.idata:0000000140002000
+.idata:0000000140002000 ; Segment type: Externs
+.idata:0000000140002000 ; _idata
+.idata:0000000140002000 ; int (__stdcall *MessageBoxExW)(HWND hWnd, LPCWSTR lpText, LPCWSTR lpCaption, UINT uType, WORD wLanguageId)
+.idata:0000000140002000                 extrn __imp_MessageBoxExW:qword
+.idata:0000000140002000                                         ; DATA XREF: MessageBoxExW_0↑r
+.idata:0000000140002000                                         ; .rdata:0000000140002220↓o
+.idata:0000000140002008                 extrn _USER32_NULL_THUNK_DATA:byte:8
+.idata:0000000140002008
+.rdata:0000000140002010 ; Debug Directory entries
+.rdata:0000000140002010 ; ===========================================================================
+.rdata:0000000140002010
+.rdata:0000000140002010 ; Segment type: Pure data
+.rdata:0000000140002010 ; Segment permissions: Read
+.rdata:0000000140002010 _rdata          segment para public 'DATA' use64
+.rdata:0000000140002010                 assume cs:_rdata
+.rdata:0000000140002010                 ;org 140002010h
+.rdata:0000000140002010                 dd 0                    ; Characteristics
+.rdata:0000000140002014                 dd 688A21B0h            ; TimeDateStamp: Wed Jul 30 13:44:16 2025
+.rdata:0000000140002018                 dw 0                    ; MajorVersion
+.rdata:000000014000201A                 dw 0                    ; MinorVersion
+.rdata:000000014000201C                 dd 2                    ; Type: IMAGE_DEBUG_TYPE_CODEVIEW
+.rdata:0000000140002020                 dd 70h                  ; SizeOfData
+.rdata:0000000140002024                 dd rva asc_140002098    ; AddressOfRawData
+.rdata:0000000140002028                 dd 698h                 ; PointerToRawData
+.rdata:000000014000202C                 dd 0                    ; Characteristics
+.rdata:0000000140002030                 dd 688A21B0h            ; TimeDateStamp: Wed Jul 30 13:44:16 2025
+.rdata:0000000140002034                 dw 0                    ; MajorVersion
+.rdata:0000000140002036                 dw 0                    ; MinorVersion
+.rdata:0000000140002038                 dd 0Ch                  ; Type: IMAGE_DEBUG_TYPE_VC_FEATURE
+.rdata:000000014000203C                 dd 14h                  ; SizeOfData
+.rdata:0000000140002040                 dd rva unk_140002108    ; AddressOfRawData
+.rdata:0000000140002044                 dd 708h                 ; PointerToRawData
+.rdata:0000000140002048                 dd 0                    ; Characteristics
+.rdata:000000014000204C                 dd 688A21B0h            ; TimeDateStamp: Wed Jul 30 13:44:16 2025
+.rdata:0000000140002050                 dw 0                    ; MajorVersion
+.rdata:0000000140002052                 dw 0                    ; MinorVersion
+.rdata:0000000140002054                 dd 0Dh                  ; Type: IMAGE_DEBUG_TYPE_POGO
+.rdata:0000000140002058                 dd 0F4h                 ; SizeOfData
+.rdata:000000014000205C                 dd rva aGctl            ; AddressOfRawData
+.rdata:0000000140002060                 dd 71Ch                 ; PointerToRawData
+.rdata:0000000140002064                 dd 0                    ; Characteristics
+.rdata:0000000140002068                 dd 688A21B0h            ; TimeDateStamp: Wed Jul 30 13:44:16 2025
+.rdata:000000014000206C                 dw 0                    ; MajorVersion
+.rdata:000000014000206E                 dw 0                    ; MinorVersion
+.rdata:0000000140002070                 dd 0Eh                  ; Type: IMAGE_DEBUG_TYPE_ILTCG
+.rdata:0000000140002074                 dd 0                    ; SizeOfData
+.rdata:0000000140002078                 dd 0                    ; AddressOfRawData
+.rdata:000000014000207C                 dd 0                    ; PointerToRawData
+.rdata:0000000140002080                 db  18h
+.rdata:0000000140002081                 db    0
+.rdata:0000000140002082                 db    0
+.rdata:0000000140002083                 db    0
+.rdata:0000000140002084                 db    0
+.rdata:0000000140002085                 db  80h
+.rdata:0000000140002086                 db    0
+.rdata:0000000140002087                 db  80h
+.rdata:0000000140002088                 db    0
+.rdata:0000000140002089                 db    0
+.rdata:000000014000208A                 db    0
+.rdata:000000014000208B                 db    0
+.rdata:000000014000208C                 db    0
+.rdata:000000014000208D                 db    0
+.rdata:000000014000208E                 db    0
+.rdata:000000014000208F                 db    0
+.rdata:0000000140002090                 db    0
+.rdata:0000000140002091                 db    0
+.rdata:0000000140002092                 db    0
+.rdata:0000000140002093                 db    0
+.rdata:0000000140002094                 db    0
+.rdata:0000000140002095                 db    0
+.rdata:0000000140002096                 db    0
+.rdata:0000000140002097                 db    0
+.rdata:0000000140002098 ; Debug information (IMAGE_DEBUG_TYPE_CODEVIEW)
+.rdata:0000000140002098 asc_140002098   db 'RSDS'               ; DATA XREF: .rdata:0000000140002024↑o
+.rdata:0000000140002098                                         ; CV signature
+.rdata:000000014000209C                 GUID <384AD0Fh, 7237h, 4255h, <0B6h, 0A7h, 8Bh, 0Dh, 0A4h, 6Fh, 97h, \ ; GUID
+.rdata:000000014000209C                       1Ch>>
+.rdata:00000001400020AC                 dd 1                    ; Age
+.rdata:00000001400020B0                 text "UTF-8", 'C:\Users\Emerald\source\repos\MessageBoxInAssembly\x64' ; PdbFileName
+.rdata:00000001400020E6                 text "UTF-8", '\Release\MessageBoxInAssembly.pdb',0
+.rdata:0000000140002108 ; Debug information (IMAGE_DEBUG_TYPE_VC_FEATURE)
+.rdata:0000000140002108 unk_140002108   db    0                 ; DATA XREF: .rdata:0000000140002040↑o
+.rdata:0000000140002109                 db    0
+.rdata:000000014000210A                 db    0
+.rdata:000000014000210B                 db    0
+.rdata:000000014000210C                 db    0
+.rdata:000000014000210D                 db    0
+.rdata:000000014000210E                 db    0
+.rdata:000000014000210F                 db    0
+.rdata:0000000140002110                 db    0
+.rdata:0000000140002111                 db    0
+.rdata:0000000140002112                 db    0
+.rdata:0000000140002113                 db    0
+.rdata:0000000140002114                 db    0
+.rdata:0000000140002115                 db    0
+.rdata:0000000140002116                 db    0
+.rdata:0000000140002117                 db    0
+.rdata:0000000140002118                 db    0
+.rdata:0000000140002119                 db    0
+.rdata:000000014000211A                 db    0
+.rdata:000000014000211B                 db    0
+.rdata:000000014000211C ; Debug information (IMAGE_DEBUG_TYPE_POGO)
+.rdata:000000014000211C aGctl           db 'GCTL',0             ; DATA XREF: .rdata:000000014000205C↑o
+.rdata:0000000140002121                 db  10h
+.rdata:0000000140002122                 db    0
+.rdata:0000000140002123                 db    0
+.rdata:0000000140002124                 db 0B7h
+.rdata:0000000140002125                 db    0
+.rdata:0000000140002126                 db    0
+.rdata:0000000140002127                 db    0
+.rdata:0000000140002128                 db  2Eh ; .
+.rdata:0000000140002129                 db  74h ; t
+.rdata:000000014000212A                 db  65h ; e
+.rdata:000000014000212B                 db  78h ; x
+.rdata:000000014000212C                 db  74h ; t
+.rdata:000000014000212D                 db  24h ; $
+.rdata:000000014000212E                 db  6Dh ; m
+.rdata:000000014000212F                 db  6Eh ; n
+.rdata:0000000140002130                 db    0
+.rdata:0000000140002131                 db    0
+.rdata:0000000140002132                 db    0
+.rdata:0000000140002133                 db    0
+.rdata:0000000140002134                 db    0
+.rdata:0000000140002135                 db  20h
+.rdata:0000000140002136                 db    0
+.rdata:0000000140002137                 db    0
+.rdata:0000000140002138                 db  10h
+.rdata:0000000140002139                 db    0
+.rdata:000000014000213A                 db    0
+.rdata:000000014000213B                 db    0
+.rdata:000000014000213C                 db  2Eh ; .
+.rdata:000000014000213D                 db  69h ; i
+.rdata:000000014000213E                 db  64h ; d
+.rdata:000000014000213F                 db  61h ; a
+.rdata:0000000140002140                 db  74h ; t
+.rdata:0000000140002141                 db  61h ; a
+.rdata:0000000140002142                 db  24h ; $
+.rdata:0000000140002143                 db  35h ; 5
+.rdata:0000000140002144                 db    0
+.rdata:0000000140002145                 db    0
+.rdata:0000000140002146                 db    0
+.rdata:0000000140002147                 db    0
+.rdata:0000000140002148                 db  10h
+.rdata:0000000140002149                 db  20h
+.rdata:000000014000214A                 db    0
+.rdata:000000014000214B                 db    0
+.rdata:000000014000214C                 db  70h ; p
+.rdata:000000014000214D                 db    0
+.rdata:000000014000214E                 db    0
+.rdata:000000014000214F                 db    0
+.rdata:0000000140002150                 db  2Eh ; .
+.rdata:0000000140002151                 db  72h ; r
+.rdata:0000000140002152                 db  64h ; d
+.rdata:0000000140002153                 db  61h ; a
+.rdata:0000000140002154                 db  74h ; t
+.rdata:0000000140002155                 db  61h ; a
+.rdata:0000000140002156                 db    0
+.rdata:0000000140002157                 db    0
+.rdata:0000000140002158                 db  80h
+.rdata:0000000140002159                 db  20h
+.rdata:000000014000215A                 db    0
+.rdata:000000014000215B                 db    0
+.rdata:000000014000215C                 db  18h
+.rdata:000000014000215D                 db    0
+.rdata:000000014000215E                 db    0
+.rdata:000000014000215F                 db    0
+.rdata:0000000140002160                 db  2Eh ; .
+.rdata:0000000140002161                 db  72h ; r
+.rdata:0000000140002162                 db  64h ; d
+.rdata:0000000140002163                 db  61h ; a
+.rdata:0000000140002164                 db  74h ; t
+.rdata:0000000140002165                 db  61h ; a
+.rdata:0000000140002166                 db  24h ; $
+.rdata:0000000140002167                 db  76h ; v
+.rdata:0000000140002168                 db  6Fh ; o
+.rdata:0000000140002169                 db  6Ch ; l
+.rdata:000000014000216A                 db  74h ; t
+.rdata:000000014000216B                 db  6Dh ; m
+.rdata:000000014000216C                 db  64h ; d
+.rdata:000000014000216D                 db    0
+.rdata:000000014000216E                 db    0
+.rdata:000000014000216F                 db    0
+.rdata:0000000140002170                 db  98h
+.rdata:0000000140002171                 db  20h
+.rdata:0000000140002172                 db    0
+.rdata:0000000140002173                 db    0
+.rdata:0000000140002174                 db  78h ; x
+.rdata:0000000140002175                 db    1
+.rdata:0000000140002176                 db    0
+.rdata:0000000140002177                 db    0
+.rdata:0000000140002178                 db  2Eh ; .
+.rdata:0000000140002179                 db  72h ; r
+.rdata:000000014000217A                 db  64h ; d
+.rdata:000000014000217B                 db  61h ; a
+.rdata:000000014000217C                 db  74h ; t
+.rdata:000000014000217D                 db  61h ; a
+.rdata:000000014000217E                 db  24h ; $
+.rdata:000000014000217F                 db  7Ah ; z
+.rdata:0000000140002180                 db  7Ah ; z
+.rdata:0000000140002181                 db  7Ah ; z
+.rdata:0000000140002182                 db  64h ; d
+.rdata:0000000140002183                 db  62h ; b
+.rdata:0000000140002184                 db  67h ; g
+.rdata:0000000140002185                 db    0
+.rdata:0000000140002186                 db    0
+.rdata:0000000140002187                 db    0
+.rdata:0000000140002188                 db  10h
+.rdata:0000000140002189                 db  22h ; "
+.rdata:000000014000218A                 db    0
+.rdata:000000014000218B                 db    0
+.rdata:000000014000218C                 db  14h
+.rdata:000000014000218D                 db    0
+.rdata:000000014000218E                 db    0
+.rdata:000000014000218F                 db    0
+.rdata:0000000140002190                 db  2Eh ; .
+.rdata:0000000140002191                 db  69h ; i
+.rdata:0000000140002192                 db  64h ; d
+.rdata:0000000140002193                 db  61h ; a
+.rdata:0000000140002194                 db  74h ; t
+.rdata:0000000140002195                 db  61h ; a
+.rdata:0000000140002196                 db  24h ; $
+.rdata:0000000140002197                 db  32h ; 2
+.rdata:0000000140002198                 db    0
+.rdata:0000000140002199                 db    0
+.rdata:000000014000219A                 db    0
+.rdata:000000014000219B                 db    0
+.rdata:000000014000219C                 db  24h ; $
+.rdata:000000014000219D                 db  22h ; "
+.rdata:000000014000219E                 db    0
+.rdata:000000014000219F                 db    0
+.rdata:00000001400021A0                 db  14h
+.rdata:00000001400021A1                 db    0
+.rdata:00000001400021A2                 db    0
+.rdata:00000001400021A3                 db    0
+.rdata:00000001400021A4                 db  2Eh ; .
+.rdata:00000001400021A5                 db  69h ; i
+.rdata:00000001400021A6                 db  64h ; d
+.rdata:00000001400021A7                 db  61h ; a
+.rdata:00000001400021A8                 db  74h ; t
+.rdata:00000001400021A9                 db  61h ; a
+.rdata:00000001400021AA                 db  24h ; $
+.rdata:00000001400021AB                 db  33h ; 3
+.rdata:00000001400021AC                 db    0
+.rdata:00000001400021AD                 db    0
+.rdata:00000001400021AE                 db    0
+.rdata:00000001400021AF                 db    0
+.rdata:00000001400021B0                 db  38h ; 8
+.rdata:00000001400021B1                 db  22h ; "
+.rdata:00000001400021B2                 db    0
+.rdata:00000001400021B3                 db    0
+.rdata:00000001400021B4                 db  10h
+.rdata:00000001400021B5                 db    0
+.rdata:00000001400021B6                 db    0
+.rdata:00000001400021B7                 db    0
+.rdata:00000001400021B8                 db  2Eh ; .
+.rdata:00000001400021B9                 db  69h ; i
+.rdata:00000001400021BA                 db  64h ; d
+.rdata:00000001400021BB                 db  61h ; a
+.rdata:00000001400021BC                 db  74h ; t
+.rdata:00000001400021BD                 db  61h ; a
+.rdata:00000001400021BE                 db  24h ; $
+.rdata:00000001400021BF                 db  34h ; 4
+.rdata:00000001400021C0                 db    0
+.rdata:00000001400021C1                 db    0
+.rdata:00000001400021C2                 db    0
+.rdata:00000001400021C3                 db    0
+.rdata:00000001400021C4                 db  48h ; H
+.rdata:00000001400021C5                 db  22h ; "
+.rdata:00000001400021C6                 db    0
+.rdata:00000001400021C7                 db    0
+.rdata:00000001400021C8                 db  1Ch
+.rdata:00000001400021C9                 db    0
+.rdata:00000001400021CA                 db    0
+.rdata:00000001400021CB                 db    0
+.rdata:00000001400021CC                 db  2Eh ; .
+.rdata:00000001400021CD                 db  69h ; i
+.rdata:00000001400021CE                 db  64h ; d
+.rdata:00000001400021CF                 db  61h ; a
+.rdata:00000001400021D0                 db  74h ; t
+.rdata:00000001400021D1                 db  61h ; a
+.rdata:00000001400021D2                 db  24h ; $
+.rdata:00000001400021D3                 db  36h ; 6
+.rdata:00000001400021D4                 db    0
+.rdata:00000001400021D5                 db    0
+.rdata:00000001400021D6                 db    0
+.rdata:00000001400021D7                 db    0
+.rdata:00000001400021D8                 db    0
+.rdata:00000001400021D9                 db  30h ; 0
+.rdata:00000001400021DA                 db    0
+.rdata:00000001400021DB                 db    0
+.rdata:00000001400021DC                 db  2Ch ; ,
+.rdata:00000001400021DD                 db    1
+.rdata:00000001400021DE                 db    0
+.rdata:00000001400021DF                 db    0
+.rdata:00000001400021E0                 db  2Eh ; .
+.rdata:00000001400021E1                 db  64h ; d
+.rdata:00000001400021E2                 db  61h ; a
+.rdata:00000001400021E3                 db  74h ; t
+.rdata:00000001400021E4                 db  61h ; a
+.rdata:00000001400021E5                 db    0
+.rdata:00000001400021E6                 db    0
+.rdata:00000001400021E7                 db    0
+.rdata:00000001400021E8                 db    0
+.rdata:00000001400021E9                 db  40h ; @
+.rdata:00000001400021EA                 db    0
+.rdata:00000001400021EB                 db    0
+.rdata:00000001400021EC                 db  60h ; `
+.rdata:00000001400021ED                 db    0
+.rdata:00000001400021EE                 db    0
+.rdata:00000001400021EF                 db    0
+.rdata:00000001400021F0                 db  2Eh ; .
+.rdata:00000001400021F1                 db  72h ; r
+.rdata:00000001400021F2                 db  73h ; s
+.rdata:00000001400021F3                 db  72h ; r
+.rdata:00000001400021F4                 db  63h ; c
+.rdata:00000001400021F5                 db  24h ; $
+.rdata:00000001400021F6                 db  30h ; 0
+.rdata:00000001400021F7                 db  31h ; 1
+.rdata:00000001400021F8                 db    0
+.rdata:00000001400021F9                 db    0
+.rdata:00000001400021FA                 db    0
+.rdata:00000001400021FB                 db    0
+.rdata:00000001400021FC                 db  60h ; `
+.rdata:00000001400021FD                 db  40h ; @
+.rdata:00000001400021FE                 db    0
+.rdata:00000001400021FF                 db    0
+.rdata:0000000140002200                 db  80h
+.rdata:0000000140002201                 db    1
+.rdata:0000000140002202                 db    0
+.rdata:0000000140002203                 db    0
+.rdata:0000000140002204                 db  2Eh ; .
+.rdata:0000000140002205                 db  72h ; r
+.rdata:0000000140002206                 db  73h ; s
+.rdata:0000000140002207                 db  72h ; r
+.rdata:0000000140002208                 db  63h ; c
+.rdata:0000000140002209                 db  24h ; $
+.rdata:000000014000220A                 db  30h ; 0
+.rdata:000000014000220B                 db  32h ; 2
+.rdata:000000014000220C                 db    0
+.rdata:000000014000220D                 db    0
+.rdata:000000014000220E                 db    0
+.rdata:000000014000220F                 db    0
+.rdata:0000000140002210 __IMPORT_DESCRIPTOR_USER32 dd rva off_140002238 ; Import Name Table
+.rdata:0000000140002214                 dd 0                    ; Time stamp
+.rdata:0000000140002218                 dd 0                    ; Forwarder Chain
+.rdata:000000014000221C                 dd rva aUser32Dll       ; DLL Name
+.rdata:0000000140002220                 dd rva __imp_MessageBoxExW ; Import Address Table
+.rdata:0000000140002224 __NULL_IMPORT_DESCRIPTOR db    0
+.rdata:0000000140002225                 db    0
+.rdata:0000000140002226                 db    0
+.rdata:0000000140002227                 db    0
+.rdata:0000000140002228                 db    0
+.rdata:0000000140002229                 db    0
+.rdata:000000014000222A                 db    0
+.rdata:000000014000222B                 db    0
+.rdata:000000014000222C                 db    0
+.rdata:000000014000222D                 db    0
+.rdata:000000014000222E                 db    0
+.rdata:000000014000222F                 db    0
+.rdata:0000000140002230                 db    0
+.rdata:0000000140002231                 db    0
+.rdata:0000000140002232                 db    0
+.rdata:0000000140002233                 db    0
+.rdata:0000000140002234                 db    0
+.rdata:0000000140002235                 db    0
+.rdata:0000000140002236                 db    0
+.rdata:0000000140002237                 db    0
+.rdata:0000000140002238 ;
+.rdata:0000000140002238 ; Import names for USER32.dll
+.rdata:0000000140002238 ;
+.rdata:0000000140002238 off_140002238   dq rva word_140002248   ; DATA XREF: .rdata:__IMPORT_DESCRIPTOR_USER32↑o
+.rdata:0000000140002240                 dq 0
+.rdata:0000000140002248 word_140002248  dw 286h                 ; DATA XREF: .rdata:off_140002238↑o
+.rdata:000000014000224A                 db 'MessageBoxExW',0
+.rdata:0000000140002258 aUser32Dll      db 'USER32.dll',0       ; DATA XREF: .rdata:000000014000221C↑o
+.rdata:0000000140002263                 align 1000h
+.rdata:0000000140002263 _rdata          ends
+.rdata:0000000140002263
+.data:0000000140003000 ; Section 3. (virtual address 00003000)
+.data:0000000140003000 ; Virtual size                  : 0000012C (    300.)
+.data:0000000140003000 ; Section size in file          : 00000200 (    512.)
+.data:0000000140003000 ; Offset to raw data for section: 00000A00
+.data:0000000140003000 ; Flags C0000040: Data Readable Writable
+.data:0000000140003000 ; Alignment     : default
+.data:0000000140003000 ; ===========================================================================
+.data:0000000140003000
+.data:0000000140003000 ; Segment type: Pure data
+.data:0000000140003000 ; Segment permissions: Read/Write
+.data:0000000140003000 _data           segment para public 'DATA' use64
+.data:0000000140003000                 assume cs:_data
+.data:0000000140003000                 ;org 140003000h
+.data:0000000140003000 ; unsigned __int64 hwnd
+.data:0000000140003000 hwnd            dq 0
+.data:0000000140003008 ; WCHAR testTitle
+.data:0000000140003008 testTitle       dw 54h                  ; DATA XREF: WinMain+16↑o
+.data:000000014000300A                 db  65h ; e
+.data:000000014000300B                 db    0
+.data:000000014000300C                 db  73h ; s
+.data:000000014000300D                 db    0
+.data:000000014000300E                 db  74h ; t
+.data:000000014000300F                 db    0
+.data:0000000140003010                 db    0
+.data:0000000140003011                 db    0
+.data:0000000140003012 ; WCHAR MrBrown
+.data:0000000140003012 MrBrown         dw 4Dh                  ; DATA XREF: WinMain+36↑o
+.data:0000000140003014 aRBrown:
+.data:0000000140003014                 text "UTF-16LE", 'r. Brown',0
+.data:0000000140003026 ; WCHAR Mommy
+.data:0000000140003026 Mommy           dw 4Dh                  ; DATA XREF: WinMain+4F↑o
+.data:0000000140003028 aOooooomyyyyyy:
+.data:0000000140003028                 text "UTF-16LE", 'oooooomyyyyyy',0
+.data:0000000140003044 ; WCHAR Error
+.data:0000000140003044 Error           dw 45h                  ; DATA XREF: WinMain+76↑o
+.data:0000000140003046                 db  72h ; r
+.data:0000000140003047                 db    0
+.data:0000000140003048                 db  72h ; r
+.data:0000000140003049                 db    0
+.data:000000014000304A                 db  6Fh ; o
+.data:000000014000304B                 db    0
+.data:000000014000304C                 db  72h ; r
+.data:000000014000304D                 db    0
+.data:000000014000304E                 db    0
+.data:000000014000304F                 db    0
+.data:0000000140003050 ; WCHAR Questions
+.data:0000000140003050 Questions:                              ; DATA XREF: WinMain+96↑o
+.data:0000000140003050                 text "UTF-16LE", 'Questions',0
+.data:0000000140003064 ; WCHAR QuestionText
+.data:0000000140003064 QuestionText    dw 48h                  ; DATA XREF: WinMain+8F↑o
+.data:0000000140003066                 db  61h ; a
+.data:0000000140003067                 db    0
+.data:0000000140003068                 db  76h ; v
+.data:0000000140003069                 db    0
+.data:000000014000306A                 db  65h ; e
+.data:000000014000306B                 db    0
+.data:000000014000306C                 db  20h
+.data:000000014000306D                 db    0
+.data:000000014000306E                 db  61h ; a
+.data:000000014000306F                 db    0
+.data:0000000140003070                 db  20h
+.data:0000000140003071                 db    0
+.data:0000000140003072                 db  51h ; Q
+.data:0000000140003073                 db    0
+.data:0000000140003074                 db  75h ; u
+.data:0000000140003075                 db    0
+.data:0000000140003076                 db  65h ; e
+.data:0000000140003077                 db    0
+.data:0000000140003078                 db  73h ; s
+.data:0000000140003079                 db    0
+.data:000000014000307A                 db  74h ; t
+.data:000000014000307B                 db    0
+.data:000000014000307C                 db  69h ; i
+.data:000000014000307D                 db    0
+.data:000000014000307E                 db  6Fh ; o
+.data:000000014000307F                 db    0
+.data:0000000140003080                 db  6Eh ; n
+.data:0000000140003081                 db    0
+.data:0000000140003082                 db  3Fh ; ?
+.data:0000000140003083                 db    0
+.data:0000000140003084                 db  20h
+.data:0000000140003085                 db    0
+.data:0000000140003086                 db  52h ; R
+.data:0000000140003087                 db    0
+.data:0000000140003088                 db  61h ; a
+.data:0000000140003089                 db    0
+.data:000000014000308A                 db  69h ; i
+.data:000000014000308B                 db    0
+.data:000000014000308C                 db  73h ; s
+.data:000000014000308D                 db    0
+.data:000000014000308E                 db  65h ; e
+.data:000000014000308F                 db    0
+.data:0000000140003090                 db  20h
+.data:0000000140003091                 db    0
+.data:0000000140003092                 db  59h ; Y
+.data:0000000140003093                 db    0
+.data:0000000140003094                 db  6Fh ; o
+.data:0000000140003095                 db    0
+.data:0000000140003096                 db  75h ; u
+.data:0000000140003097                 db    0
+.data:0000000140003098                 db  72h ; r
+.data:0000000140003099                 db    0
+.data:000000014000309A                 db  20h
+.data:000000014000309B                 db    0
+.data:000000014000309C                 db  48h ; H
+.data:000000014000309D                 db    0
+.data:000000014000309E                 db  61h ; a
+.data:000000014000309F                 db    0
+.data:00000001400030A0                 db  6Eh ; n
+.data:00000001400030A1                 db    0
+.data:00000001400030A2                 db  64h ; d
+.data:00000001400030A3                 db    0
+.data:00000001400030A4                 db  2Eh ; .
+.data:00000001400030A5                 db    0
+.data:00000001400030A6                 db    0
+.data:00000001400030A7                 db    0
+.data:00000001400030A8 ; WCHAR MommyTitle
+.data:00000001400030A8 MommyTitle      dw 4Dh                  ; DATA XREF: WinMain+56↑o
+.data:00000001400030AA                 db  6Fh ; o
+.data:00000001400030AB                 db    0
+.data:00000001400030AC                 db  6Dh ; m
+.data:00000001400030AD                 db    0
+.data:00000001400030AE                 db  6Dh ; m
+.data:00000001400030AF                 db    0
+.data:00000001400030B0                 db  79h ; y
+.data:00000001400030B1                 db    0
+.data:00000001400030B2                 db    0
+.data:00000001400030B3                 db    0
+.data:00000001400030B4 ; WCHAR NoVirusMsg
+.data:00000001400030B4 NoVirusMsg      dw 45h                  ; DATA XREF: WinMain+6F↑o
+.data:00000001400030B6                 db  6Dh ; m
+.data:00000001400030B7                 db    0
+.data:00000001400030B8                 db  65h ; e
+.data:00000001400030B9                 db    0
+.data:00000001400030BA                 db  72h ; r
+.data:00000001400030BB                 db    0
+.data:00000001400030BC                 db  61h ; a
+.data:00000001400030BD                 db    0
+.data:00000001400030BE                 db  6Ch ; l
+.data:00000001400030BF                 db    0
+.data:00000001400030C0                 db  64h ; d
+.data:00000001400030C1                 db    0
+.data:00000001400030C2                 db  20h
+.data:00000001400030C3                 db    0
+.data:00000001400030C4                 db  64h ; d
+.data:00000001400030C5                 db    0
+.data:00000001400030C6                 db  6Fh ; o
+.data:00000001400030C7                 db    0
+.data:00000001400030C8                 db  65h ; e
+.data:00000001400030C9                 db    0
+.data:00000001400030CA                 db  73h ; s
+.data:00000001400030CB                 db    0
+.data:00000001400030CC                 db  20h
+.data:00000001400030CD                 db    0
+.data:00000001400030CE                 db  6Eh ; n
+.data:00000001400030CF                 db    0
+.data:00000001400030D0                 db  6Fh ; o
+.data:00000001400030D1                 db    0
+.data:00000001400030D2                 db  74h ; t
+.data:00000001400030D3                 db    0
+.data:00000001400030D4                 db  20h
+.data:00000001400030D5                 db    0
+.data:00000001400030D6                 db  6Dh ; m
+.data:00000001400030D7                 db    0
+.data:00000001400030D8                 db  61h ; a
+.data:00000001400030D9                 db    0
+.data:00000001400030DA                 db  6Bh ; k
+.data:00000001400030DB                 db    0
+.data:00000001400030DC                 db  65h ; e
+.data:00000001400030DD                 db    0
+.data:00000001400030DE                 db  20h
+.data:00000001400030DF                 db    0
+.data:00000001400030E0                 db  76h ; v
+.data:00000001400030E1                 db    0
+.data:00000001400030E2                 db  69h ; i
+.data:00000001400030E3                 db    0
+.data:00000001400030E4                 db  72h ; r
+.data:00000001400030E5                 db    0
+.data:00000001400030E6                 db  75h ; u
+.data:00000001400030E7                 db    0
+.data:00000001400030E8                 db  73h ; s
+.data:00000001400030E9                 db    0
+.data:00000001400030EA                 db  65h ; e
+.data:00000001400030EB                 db    0
+.data:00000001400030EC                 db  73h ; s
+.data:00000001400030ED                 db    0
+.data:00000001400030EE                 db  2Eh ; .
+.data:00000001400030EF                 db    0
+.data:00000001400030F0                 db    0
+.data:00000001400030F1                 db    0
+.data:00000001400030F2 ; WCHAR helloMsg
+.data:00000001400030F2 helloMsg        dw 48h                  ; DATA XREF: WinMain+F↑o
+.data:00000001400030F4 aElloWorld:
+.data:00000001400030F4                 text "UTF-16LE", 'ello World',0
+.data:000000014000310A ; WCHAR MrBrownMsg
+.data:000000014000310A MrBrownMsg      dw 48h                  ; DATA XREF: WinMain+2F↑o
+.data:000000014000310C aElloMrBrown:
+.data:000000014000310C                 text "UTF-16LE", 'ello Mr. Brown!',0
+.data:000000014000312C                 align 1000h
+.data:000000014000312C _data           ends
+.data:000000014000312C
+.data:000000014000312C
+.data:000000014000312C                 end WinMain
